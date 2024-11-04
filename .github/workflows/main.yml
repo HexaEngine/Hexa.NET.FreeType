@@ -65,6 +65,7 @@ jobs:
         ./vcpkg/vcpkg install libpng --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg install brotli --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg install bzip2 --triplet ${{ matrix.vcpkg-triplet }}
+        ./vcpkg/vcpkg install harfbuzz --triplet ${{ matrix.vcpkg-triplet }}
 
     - name: Install vcpkg (Windows)
       if: matrix.os == 'windows-latest'
@@ -76,6 +77,7 @@ jobs:
         ./vcpkg/vcpkg.exe install libpng --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg.exe install brotli --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg.exe install bzip2 --triplet ${{ matrix.vcpkg-triplet }}
+        ./vcpkg/vcpkg.exe install harfbuzz --triplet ${{ matrix.vcpkg-triplet }}
 
     - name: Configure FreeType with CMake for ARM64 on Linux
       if: matrix.os == 'ubuntu-latest' && matrix.arch == 'arm64'

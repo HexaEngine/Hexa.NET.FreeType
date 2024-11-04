@@ -132,7 +132,7 @@ jobs:
       with:
         name: FreeType-${{ matrix.os }}-${{ matrix.arch }}-artifacts 
         path: |
-          freetype/build/Release/*.dll
+          freetype/build/*.dll
           freetype/build/*.so
           freetype/build/*.dylib
         if-no-files-found: ignore # 'warn' or 'ignore' or 'error'

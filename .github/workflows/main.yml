@@ -115,6 +115,7 @@ jobs:
         install_name_tool -change @rpath/libharfbuzz.0.dylib @loader_path/libharfbuzz.0.dylib libfreetype.dylib
         install_name_tool -change @rpath/libbrotlidec.1.1.0.dylib @loader_path/libbrotlidec.1.1.0.dylib libfreetype.dylib
         cd ..
+        ls ./vcpkg/installed/${{ matrix.vcpkg-triplet }}
         cp ./vcpkg/installed/${{ matrix.vcpkg-triplet }}/libz.1.3.1.dylib ./build/
         cp ./vcpkg/installed/${{ matrix.vcpkg-triplet }}/libbz2.1.0.8.dylib ./build/ 
         cp ./vcpkg/installed/${{ matrix.vcpkg-triplet }}/libpng16.16.43.0.dylib ./build/ 

@@ -19,15 +19,15 @@ jobs:
           - os: windows-latest
             arch: x86_64
             cmake-arch: x64
-            vcpkg-triplet: x64-windows-static
+            vcpkg-triplet: x64-windows
           - os: windows-latest
             arch: x86
             cmake-arch: win32
-            vcpkg-triplet: x86-windows-static
+            vcpkg-triplet: x86-windows
           - os: windows-latest
             arch: arm64
             cmake-arch: arm64
-            vcpkg-triplet: arm64-windows-static
+            vcpkg-triplet: arm64-windows
 #          - os: macos-latest
 #            arch: x86_64
 #            cmake-arch: x86_64

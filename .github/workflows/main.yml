@@ -105,6 +105,27 @@ jobs:
     - name: Build FreeType 
       run: cmake --build freetype/build --config Release
 
+    - name: Fix rpath (OSX)
+      if: matrix.os == 'macos-latest'
+      run: |
+        cd freetype/build/
+        install_name_tool -change @rpath/libz.1.3.1.dylib @loader_path/libz.1.3.1.dylib libfreetype.dylib
+        install_name_tool -change @rpath/libbz2.1.0.8.dylib @loader_path/libbz2.1.0.8.dylib libfreetype.dylib
+        install_name_tool -change @rpath/libpng16.16.43.0.dylib @loader_path/libpng16.16.43.0.dylib libfreetype.dylib
+        install_name_tool -change @rpath/libharfbuzz.0.dylib @loader_path/libharfbuzz.0.dylib libfreetype.dylib
+        install_name_tool -change @rpath/libbrotlidec.1.1.0.dylib @loader_path/libbrotlidec.1.1.0.dylib libfreetype.dylib
+        cd ..
+        cp ./vcpkg/installed/${{ matrix.vcpkg-triplet }}/libz.1.3.1.dylib ./build/
+        cp ./vcpkg/installed/${{ matrix.vcpkg-triplet }}/libbz2.1.0.8.dylib ./build/ 
+        cp ./vcpkg/installed/${{ matrix.vcpkg-triplet }}/libpng16.16.43.0.dylib ./build/ 
+        cp ./vcpkg/installed/${{ matrix.vcpkg-triplet }}/libharfbuzz.0.dylib ./build/
+        cp ./vcpkg/installed/${{ matrix.vcpkg-triplet }}/libbrotlidec.1.1.0.dylib ./build/ 
+
+    - name: Move Windows binaries
+      if: matrix.os == 'windows-latest'
+      run: |
+        mv freetype/build/Release/*.dll freetype/build/
+
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4.3.4
       with:

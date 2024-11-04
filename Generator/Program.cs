@@ -2,6 +2,7 @@
 using HexaGen;
 using System.Text.RegularExpressions;
 using System.Text;
+using HexaGen.Patching;
 
 {
     var files = Directory.GetFiles("include", "", SearchOption.AllDirectories);
@@ -75,4 +76,5 @@ string headerFile = "include/main.h";
 
 CsCodeGenerator generator = new(settings);
 generator.LogToConsole();
+generator.PatchEngine.RegisterPrePatch(new NamingPatch(["FT"], NamingPatchOptions.None));
 generator.Generate(headerFile, "../../../../Hexa.NET.FreeType/Generated");

@@ -49,11 +49,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_Name")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTGetSfntName([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] ref FTSfntName aname)
+		public static FTError GetSfntName([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] ref FTSfntName aname)
 		{
 			fixed (FTSfntName* paname = &aname)
 			{
-				int ret = FTGetSfntNameNative(face, idx, (FTSfntName*)paname);
+				FTError ret = GetSfntNameNative(face, idx, (FTSfntName*)paname);
 				return ret;
 			}
 		}
@@ -92,12 +92,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_LangTag")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTGetSfntLangTagNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] FTSfntLangTag* alangTag)
+		internal static FTError GetSfntLangTagNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] FTSfntLangTag* alangTag)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTFace, uint, FTSfntLangTag*, int>)funcTable[95])(face, langID, alangTag);
+			return ((delegate* unmanaged[Cdecl]<FTFace, uint, FTSfntLangTag*, FTError>)funcTable[95])(face, langID, alangTag);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTFace, uint, nint, int>)funcTable[95])(face, langID, (nint)alangTag);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTFace, uint, nint, FTError>)funcTable[95])(face, langID, (nint)alangTag);
 			#endif
 		}
 
@@ -134,9 +134,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_LangTag")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTGetSfntLangTag([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] FTSfntLangTag* alangTag)
+		public static FTError GetSfntLangTag([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] FTSfntLangTag* alangTag)
 		{
-			int ret = FTGetSfntLangTagNative(face, langID, alangTag);
+			FTError ret = GetSfntLangTagNative(face, langID, alangTag);
 			return ret;
 		}
 
@@ -173,11 +173,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_LangTag")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTGetSfntLangTag([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] ref FTSfntLangTag alangTag)
+		public static FTError GetSfntLangTag([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] ref FTSfntLangTag alangTag)
 		{
 			fixed (FTSfntLangTag* palangTag = &alangTag)
 			{
-				int ret = FTGetSfntLangTagNative(face, langID, (FTSfntLangTag*)palangTag);
+				FTError ret = GetSfntLangTagNative(face, langID, (FTSfntLangTag*)palangTag);
 				return ret;
 			}
 		}
@@ -206,12 +206,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_BBox")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTOutlineGetBBoxNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] FTBBox* abbox)
+		internal static FTError OutlineGetBBoxNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] FTBBox* abbox)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTOutline*, FTBBox*, int>)funcTable[96])(outline, abbox);
+			return ((delegate* unmanaged[Cdecl]<FTOutline*, FTBBox*, FTError>)funcTable[96])(outline, abbox);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, int>)funcTable[96])((nint)outline, (nint)abbox);
+			return (FTError)((delegate* unmanaged[Cdecl]<nint, nint, FTError>)funcTable[96])((nint)outline, (nint)abbox);
 			#endif
 		}
 
@@ -238,9 +238,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_BBox")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineGetBBox([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] FTBBox* abbox)
+		public static FTError OutlineGetBBox([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] FTBBox* abbox)
 		{
-			int ret = FTOutlineGetBBoxNative(outline, abbox);
+			FTError ret = OutlineGetBBoxNative(outline, abbox);
 			return ret;
 		}
 
@@ -267,11 +267,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_BBox")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineGetBBox([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] FTBBox* abbox)
+		public static FTError OutlineGetBBox([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] FTBBox* abbox)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				int ret = FTOutlineGetBBoxNative((FTOutline*)poutline, abbox);
+				FTError ret = OutlineGetBBoxNative((FTOutline*)poutline, abbox);
 				return ret;
 			}
 		}
@@ -299,11 +299,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_BBox")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineGetBBox([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] ref FTBBox abbox)
+		public static FTError OutlineGetBBox([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] ref FTBBox abbox)
 		{
 			fixed (FTBBox* pabbox = &abbox)
 			{
-				int ret = FTOutlineGetBBoxNative(outline, (FTBBox*)pabbox);
+				FTError ret = OutlineGetBBoxNative(outline, (FTBBox*)pabbox);
 				return ret;
 			}
 		}
@@ -331,13 +331,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_BBox")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineGetBBox([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] ref FTBBox abbox)
+		public static FTError OutlineGetBBox([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "abbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] ref FTBBox abbox)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
 				fixed (FTBBox* pabbox = &abbox)
 				{
-					int ret = FTOutlineGetBBoxNative((FTOutline*)poutline, (FTBBox*)pabbox);
+					FTError ret = OutlineGetBBoxNative((FTOutline*)poutline, (FTBBox*)pabbox);
 					return ret;
 				}
 			}
@@ -361,7 +361,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Outline_GetInsideBorder")]
 		[return: NativeName(NativeNameType.Type, "FT_StrokerBorder")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static FTStrokerBorder FTOutlineGetInsideBorderNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		internal static FTStrokerBorder OutlineGetInsideBorderNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTOutline*, FTStrokerBorder>)funcTable[97])(outline);
@@ -387,9 +387,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_GetInsideBorder")]
 		[return: NativeName(NativeNameType.Type, "FT_StrokerBorder")]
-		public static FTStrokerBorder FTOutlineGetInsideBorder([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		public static FTStrokerBorder OutlineGetInsideBorder([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
-			FTStrokerBorder ret = FTOutlineGetInsideBorderNative(outline);
+			FTStrokerBorder ret = OutlineGetInsideBorderNative(outline);
 			return ret;
 		}
 
@@ -410,11 +410,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_GetInsideBorder")]
 		[return: NativeName(NativeNameType.Type, "FT_StrokerBorder")]
-		public static FTStrokerBorder FTOutlineGetInsideBorder([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
+		public static FTStrokerBorder OutlineGetInsideBorder([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				FTStrokerBorder ret = FTOutlineGetInsideBorderNative((FTOutline*)poutline);
+				FTStrokerBorder ret = OutlineGetInsideBorderNative((FTOutline*)poutline);
 				return ret;
 			}
 		}
@@ -437,7 +437,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Outline_GetOutsideBorder")]
 		[return: NativeName(NativeNameType.Type, "FT_StrokerBorder")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static FTStrokerBorder FTOutlineGetOutsideBorderNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		internal static FTStrokerBorder OutlineGetOutsideBorderNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTOutline*, FTStrokerBorder>)funcTable[98])(outline);
@@ -463,9 +463,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_GetOutsideBorder")]
 		[return: NativeName(NativeNameType.Type, "FT_StrokerBorder")]
-		public static FTStrokerBorder FTOutlineGetOutsideBorder([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		public static FTStrokerBorder OutlineGetOutsideBorder([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
-			FTStrokerBorder ret = FTOutlineGetOutsideBorderNative(outline);
+			FTStrokerBorder ret = OutlineGetOutsideBorderNative(outline);
 			return ret;
 		}
 
@@ -486,11 +486,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_GetOutsideBorder")]
 		[return: NativeName(NativeNameType.Type, "FT_StrokerBorder")]
-		public static FTStrokerBorder FTOutlineGetOutsideBorder([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
+		public static FTStrokerBorder OutlineGetOutsideBorder([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				FTStrokerBorder ret = FTOutlineGetOutsideBorderNative((FTOutline*)poutline);
+				FTStrokerBorder ret = OutlineGetOutsideBorderNative((FTOutline*)poutline);
 				return ret;
 			}
 		}
@@ -515,12 +515,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_New")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTStrokerNewNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "astroker")] [NativeName(NativeNameType.Type, "FT_Stroker *")] FTStroker* astroker)
+		internal static FTError StrokerNewNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "astroker")] [NativeName(NativeNameType.Type, "FT_Stroker *")] FTStroker* astroker)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTStroker*, int>)funcTable[99])(library, astroker);
+			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTStroker*, FTError>)funcTable[99])(library, astroker);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTLibrary, nint, int>)funcTable[99])(library, (nint)astroker);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTLibrary, nint, FTError>)funcTable[99])(library, (nint)astroker);
 			#endif
 		}
 
@@ -543,9 +543,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_New")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerNew([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "astroker")] [NativeName(NativeNameType.Type, "FT_Stroker *")] FTStroker* astroker)
+		public static FTError StrokerNew([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "astroker")] [NativeName(NativeNameType.Type, "FT_Stroker *")] FTStroker* astroker)
 		{
-			int ret = FTStrokerNewNative(library, astroker);
+			FTError ret = StrokerNewNative(library, astroker);
 			return ret;
 		}
 
@@ -568,11 +568,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_New")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerNew([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "astroker")] [NativeName(NativeNameType.Type, "FT_Stroker *")] ref FTStroker astroker)
+		public static FTError StrokerNew([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "astroker")] [NativeName(NativeNameType.Type, "FT_Stroker *")] ref FTStroker astroker)
 		{
 			fixed (FTStroker* pastroker = &astroker)
 			{
-				int ret = FTStrokerNewNative(library, (FTStroker*)pastroker);
+				FTError ret = StrokerNewNative(library, (FTStroker*)pastroker);
 				return ret;
 			}
 		}
@@ -610,7 +610,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_Set")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTStrokerSetNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "radius")] [NativeName(NativeNameType.Type, "FT_Fixed")] int radius, [NativeName(NativeNameType.Param, "line_cap")] [NativeName(NativeNameType.Type, "FT_Stroker_LineCap")] FTStrokerLineCap lineCap, [NativeName(NativeNameType.Param, "line_join")] [NativeName(NativeNameType.Type, "FT_Stroker_LineJoin")] FTStrokerLineJoin lineJoin, [NativeName(NativeNameType.Param, "miter_limit")] [NativeName(NativeNameType.Type, "FT_Fixed")] int miterLimit)
+		internal static void StrokerSetNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "radius")] [NativeName(NativeNameType.Type, "FT_Fixed")] int radius, [NativeName(NativeNameType.Param, "line_cap")] [NativeName(NativeNameType.Type, "FT_Stroker_LineCap")] FTStrokerLineCap lineCap, [NativeName(NativeNameType.Param, "line_join")] [NativeName(NativeNameType.Type, "FT_Stroker_LineJoin")] FTStrokerLineJoin lineJoin, [NativeName(NativeNameType.Param, "miter_limit")] [NativeName(NativeNameType.Type, "FT_Fixed")] int miterLimit)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTStroker, int, FTStrokerLineCap, FTStrokerLineJoin, int, void>)funcTable[100])(stroker, radius, lineCap, lineJoin, miterLimit);
@@ -651,9 +651,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_Set")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTStrokerSet([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "radius")] [NativeName(NativeNameType.Type, "FT_Fixed")] int radius, [NativeName(NativeNameType.Param, "line_cap")] [NativeName(NativeNameType.Type, "FT_Stroker_LineCap")] FTStrokerLineCap lineCap, [NativeName(NativeNameType.Param, "line_join")] [NativeName(NativeNameType.Type, "FT_Stroker_LineJoin")] FTStrokerLineJoin lineJoin, [NativeName(NativeNameType.Param, "miter_limit")] [NativeName(NativeNameType.Type, "FT_Fixed")] int miterLimit)
+		public static void StrokerSet([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "radius")] [NativeName(NativeNameType.Type, "FT_Fixed")] int radius, [NativeName(NativeNameType.Param, "line_cap")] [NativeName(NativeNameType.Type, "FT_Stroker_LineCap")] FTStrokerLineCap lineCap, [NativeName(NativeNameType.Param, "line_join")] [NativeName(NativeNameType.Type, "FT_Stroker_LineJoin")] FTStrokerLineJoin lineJoin, [NativeName(NativeNameType.Param, "miter_limit")] [NativeName(NativeNameType.Type, "FT_Fixed")] int miterLimit)
 		{
-			FTStrokerSetNative(stroker, radius, lineCap, lineJoin, miterLimit);
+			StrokerSetNative(stroker, radius, lineCap, lineJoin, miterLimit);
 		}
 
 		/// <summary>
@@ -675,7 +675,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_Rewind")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTStrokerRewindNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
+		internal static void StrokerRewindNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTStroker, void>)funcTable[101])(stroker);
@@ -702,9 +702,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_Rewind")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTStrokerRewind([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
+		public static void StrokerRewind([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
 		{
-			FTStrokerRewindNative(stroker);
+			StrokerRewindNative(stroker);
 		}
 
 		/// <summary>
@@ -737,12 +737,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_ParseOutline")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTStrokerParseOutlineNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
+		internal static FTError StrokerParseOutlineNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTStroker, FTOutline*, byte, int>)funcTable[102])(stroker, outline, opened);
+			return ((delegate* unmanaged[Cdecl]<FTStroker, FTOutline*, byte, FTError>)funcTable[102])(stroker, outline, opened);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTStroker, nint, byte, int>)funcTable[102])(stroker, (nint)outline, opened);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTStroker, nint, byte, FTError>)funcTable[102])(stroker, (nint)outline, opened);
 			#endif
 		}
 
@@ -775,9 +775,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ParseOutline")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerParseOutline([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
+		public static FTError StrokerParseOutline([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
 		{
-			int ret = FTStrokerParseOutlineNative(stroker, outline, opened);
+			FTError ret = StrokerParseOutlineNative(stroker, outline, opened);
 			return ret;
 		}
 
@@ -810,11 +810,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ParseOutline")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerParseOutline([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
+		public static FTError StrokerParseOutline([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				int ret = FTStrokerParseOutlineNative(stroker, (FTOutline*)poutline, opened);
+				FTError ret = StrokerParseOutlineNative(stroker, (FTOutline*)poutline, opened);
 				return ret;
 			}
 		}
@@ -840,12 +840,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_BeginSubPath")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTStrokerBeginSubPathNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
+		internal static FTError StrokerBeginSubPathNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTStroker, FTVector*, byte, int>)funcTable[103])(stroker, to, open);
+			return ((delegate* unmanaged[Cdecl]<FTStroker, FTVector*, byte, FTError>)funcTable[103])(stroker, to, open);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTStroker, nint, byte, int>)funcTable[103])(stroker, (nint)to, open);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTStroker, nint, byte, FTError>)funcTable[103])(stroker, (nint)to, open);
 			#endif
 		}
 
@@ -869,9 +869,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_BeginSubPath")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerBeginSubPath([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
+		public static FTError StrokerBeginSubPath([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
 		{
-			int ret = FTStrokerBeginSubPathNative(stroker, to, open);
+			FTError ret = StrokerBeginSubPathNative(stroker, to, open);
 			return ret;
 		}
 
@@ -895,11 +895,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_BeginSubPath")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerBeginSubPath([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
+		public static FTError StrokerBeginSubPath([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
 		{
 			fixed (FTVector* pto = &to)
 			{
-				int ret = FTStrokerBeginSubPathNative(stroker, (FTVector*)pto, open);
+				FTError ret = StrokerBeginSubPathNative(stroker, (FTVector*)pto, open);
 				return ret;
 			}
 		}
@@ -921,12 +921,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_EndSubPath")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTStrokerEndSubPathNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
+		internal static FTError StrokerEndSubPathNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTStroker, int>)funcTable[104])(stroker);
+			return ((delegate* unmanaged[Cdecl]<FTStroker, FTError>)funcTable[104])(stroker);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTStroker, int>)funcTable[104])(stroker);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTStroker, FTError>)funcTable[104])(stroker);
 			#endif
 		}
 
@@ -946,9 +946,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_EndSubPath")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerEndSubPath([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
+		public static FTError StrokerEndSubPath([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
 		{
-			int ret = FTStrokerEndSubPathNative(stroker);
+			FTError ret = StrokerEndSubPathNative(stroker);
 			return ret;
 		}
 
@@ -972,12 +972,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_LineTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTStrokerLineToNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		internal static FTError StrokerLineToNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTStroker, FTVector*, int>)funcTable[105])(stroker, to);
+			return ((delegate* unmanaged[Cdecl]<FTStroker, FTVector*, FTError>)funcTable[105])(stroker, to);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTStroker, nint, int>)funcTable[105])(stroker, (nint)to);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTStroker, nint, FTError>)funcTable[105])(stroker, (nint)to);
 			#endif
 		}
 
@@ -1000,9 +1000,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_LineTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerLineTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError StrokerLineTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
-			int ret = FTStrokerLineToNative(stroker, to);
+			FTError ret = StrokerLineToNative(stroker, to);
 			return ret;
 		}
 
@@ -1025,11 +1025,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_LineTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerLineTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError StrokerLineTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pto = &to)
 			{
-				int ret = FTStrokerLineToNative(stroker, (FTVector*)pto);
+				FTError ret = StrokerLineToNative(stroker, (FTVector*)pto);
 				return ret;
 			}
 		}
@@ -1056,12 +1056,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_ConicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTStrokerConicToNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		internal static FTError StrokerConicToNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTStroker, FTVector*, FTVector*, int>)funcTable[106])(stroker, control, to);
+			return ((delegate* unmanaged[Cdecl]<FTStroker, FTVector*, FTVector*, FTError>)funcTable[106])(stroker, control, to);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTStroker, nint, nint, int>)funcTable[106])(stroker, (nint)control, (nint)to);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTStroker, nint, nint, FTError>)funcTable[106])(stroker, (nint)control, (nint)to);
 			#endif
 		}
 
@@ -1086,9 +1086,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ConicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerConicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError StrokerConicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
-			int ret = FTStrokerConicToNative(stroker, control, to);
+			FTError ret = StrokerConicToNative(stroker, control, to);
 			return ret;
 		}
 
@@ -1113,11 +1113,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ConicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerConicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError StrokerConicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			fixed (FTVector* pcontrol = &control)
 			{
-				int ret = FTStrokerConicToNative(stroker, (FTVector*)pcontrol, to);
+				FTError ret = StrokerConicToNative(stroker, (FTVector*)pcontrol, to);
 				return ret;
 			}
 		}
@@ -1143,11 +1143,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ConicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerConicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError StrokerConicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pto = &to)
 			{
-				int ret = FTStrokerConicToNative(stroker, control, (FTVector*)pto);
+				FTError ret = StrokerConicToNative(stroker, control, (FTVector*)pto);
 				return ret;
 			}
 		}
@@ -1173,13 +1173,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ConicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerConicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError StrokerConicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pcontrol = &control)
 			{
 				fixed (FTVector* pto = &to)
 				{
-					int ret = FTStrokerConicToNative(stroker, (FTVector*)pcontrol, (FTVector*)pto);
+					FTError ret = StrokerConicToNative(stroker, (FTVector*)pcontrol, (FTVector*)pto);
 					return ret;
 				}
 			}
@@ -1209,12 +1209,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTStrokerCubicToNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		internal static FTError StrokerCubicToNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTStroker, FTVector*, FTVector*, FTVector*, int>)funcTable[107])(stroker, control1, control2, to);
+			return ((delegate* unmanaged[Cdecl]<FTStroker, FTVector*, FTVector*, FTVector*, FTError>)funcTable[107])(stroker, control1, control2, to);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTStroker, nint, nint, nint, int>)funcTable[107])(stroker, (nint)control1, (nint)control2, (nint)to);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTStroker, nint, nint, nint, FTError>)funcTable[107])(stroker, (nint)control1, (nint)control2, (nint)to);
 			#endif
 		}
 
@@ -1241,9 +1241,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError StrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
-			int ret = FTStrokerCubicToNative(stroker, control1, control2, to);
+			FTError ret = StrokerCubicToNative(stroker, control1, control2, to);
 			return ret;
 		}
 
@@ -1270,11 +1270,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError StrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			fixed (FTVector* pcontrol1 = &control1)
 			{
-				int ret = FTStrokerCubicToNative(stroker, (FTVector*)pcontrol1, control2, to);
+				FTError ret = StrokerCubicToNative(stroker, (FTVector*)pcontrol1, control2, to);
 				return ret;
 			}
 		}
@@ -1302,11 +1302,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError StrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			fixed (FTVector* pcontrol2 = &control2)
 			{
-				int ret = FTStrokerCubicToNative(stroker, control1, (FTVector*)pcontrol2, to);
+				FTError ret = StrokerCubicToNative(stroker, control1, (FTVector*)pcontrol2, to);
 				return ret;
 			}
 		}
@@ -1334,13 +1334,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError StrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			fixed (FTVector* pcontrol1 = &control1)
 			{
 				fixed (FTVector* pcontrol2 = &control2)
 				{
-					int ret = FTStrokerCubicToNative(stroker, (FTVector*)pcontrol1, (FTVector*)pcontrol2, to);
+					FTError ret = StrokerCubicToNative(stroker, (FTVector*)pcontrol1, (FTVector*)pcontrol2, to);
 					return ret;
 				}
 			}
@@ -1369,11 +1369,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError StrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pto = &to)
 			{
-				int ret = FTStrokerCubicToNative(stroker, control1, control2, (FTVector*)pto);
+				FTError ret = StrokerCubicToNative(stroker, control1, control2, (FTVector*)pto);
 				return ret;
 			}
 		}
@@ -1401,13 +1401,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError StrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pcontrol1 = &control1)
 			{
 				fixed (FTVector* pto = &to)
 				{
-					int ret = FTStrokerCubicToNative(stroker, (FTVector*)pcontrol1, control2, (FTVector*)pto);
+					FTError ret = StrokerCubicToNative(stroker, (FTVector*)pcontrol1, control2, (FTVector*)pto);
 					return ret;
 				}
 			}
@@ -1436,13 +1436,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError StrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pcontrol2 = &control2)
 			{
 				fixed (FTVector* pto = &to)
 				{
-					int ret = FTStrokerCubicToNative(stroker, control1, (FTVector*)pcontrol2, (FTVector*)pto);
+					FTError ret = StrokerCubicToNative(stroker, control1, (FTVector*)pcontrol2, (FTVector*)pto);
 					return ret;
 				}
 			}
@@ -1471,7 +1471,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError StrokerCubicTo([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pcontrol1 = &control1)
 			{
@@ -1479,7 +1479,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTVector* pto = &to)
 					{
-						int ret = FTStrokerCubicToNative(stroker, (FTVector*)pcontrol1, (FTVector*)pcontrol2, (FTVector*)pto);
+						FTError ret = StrokerCubicToNative(stroker, (FTVector*)pcontrol1, (FTVector*)pcontrol2, (FTVector*)pto);
 						return ret;
 					}
 				}
@@ -1520,12 +1520,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetBorderCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTStrokerGetBorderCountsNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		internal static FTError StrokerGetBorderCountsNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTStroker, FTStrokerBorder, uint*, uint*, int>)funcTable[108])(stroker, border, anumPoints, anumContours);
+			return ((delegate* unmanaged[Cdecl]<FTStroker, FTStrokerBorder, uint*, uint*, FTError>)funcTable[108])(stroker, border, anumPoints, anumContours);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTStroker, FTStrokerBorder, nint, nint, int>)funcTable[108])(stroker, border, (nint)anumPoints, (nint)anumContours);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTStroker, FTStrokerBorder, nint, nint, FTError>)funcTable[108])(stroker, border, (nint)anumPoints, (nint)anumContours);
 			#endif
 		}
 
@@ -1562,9 +1562,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetBorderCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerGetBorderCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		public static FTError StrokerGetBorderCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
-			int ret = FTStrokerGetBorderCountsNative(stroker, border, anumPoints, anumContours);
+			FTError ret = StrokerGetBorderCountsNative(stroker, border, anumPoints, anumContours);
 			return ret;
 		}
 
@@ -1601,11 +1601,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetBorderCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerGetBorderCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		public static FTError StrokerGetBorderCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
 			fixed (uint* panumPoints = &anumPoints)
 			{
-				int ret = FTStrokerGetBorderCountsNative(stroker, border, (uint*)panumPoints, anumContours);
+				FTError ret = StrokerGetBorderCountsNative(stroker, border, (uint*)panumPoints, anumContours);
 				return ret;
 			}
 		}
@@ -1643,11 +1643,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetBorderCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerGetBorderCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
+		public static FTError StrokerGetBorderCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
 		{
 			fixed (uint* panumContours = &anumContours)
 			{
-				int ret = FTStrokerGetBorderCountsNative(stroker, border, anumPoints, (uint*)panumContours);
+				FTError ret = StrokerGetBorderCountsNative(stroker, border, anumPoints, (uint*)panumContours);
 				return ret;
 			}
 		}
@@ -1685,13 +1685,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetBorderCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerGetBorderCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
+		public static FTError StrokerGetBorderCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
 		{
 			fixed (uint* panumPoints = &anumPoints)
 			{
 				fixed (uint* panumContours = &anumContours)
 				{
-					int ret = FTStrokerGetBorderCountsNative(stroker, border, (uint*)panumPoints, (uint*)panumContours);
+					FTError ret = StrokerGetBorderCountsNative(stroker, border, (uint*)panumPoints, (uint*)panumContours);
 					return ret;
 				}
 			}
@@ -1730,7 +1730,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_ExportBorder")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTStrokerExportBorderNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		internal static void StrokerExportBorderNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTStroker, FTStrokerBorder, FTOutline*, void>)funcTable[109])(stroker, border, outline);
@@ -1771,9 +1771,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ExportBorder")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTStrokerExportBorder([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		public static void StrokerExportBorder([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
-			FTStrokerExportBorderNative(stroker, border, outline);
+			StrokerExportBorderNative(stroker, border, outline);
 		}
 
 		/// <summary>
@@ -1808,11 +1808,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ExportBorder")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTStrokerExportBorder([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
+		public static void StrokerExportBorder([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				FTStrokerExportBorderNative(stroker, border, (FTOutline*)poutline);
+				StrokerExportBorderNative(stroker, border, (FTOutline*)poutline);
 			}
 		}
 
@@ -1840,12 +1840,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTStrokerGetCountsNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		internal static FTError StrokerGetCountsNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTStroker, uint*, uint*, int>)funcTable[110])(stroker, anumPoints, anumContours);
+			return ((delegate* unmanaged[Cdecl]<FTStroker, uint*, uint*, FTError>)funcTable[110])(stroker, anumPoints, anumContours);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTStroker, nint, nint, int>)funcTable[110])(stroker, (nint)anumPoints, (nint)anumContours);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTStroker, nint, nint, FTError>)funcTable[110])(stroker, (nint)anumPoints, (nint)anumContours);
 			#endif
 		}
 
@@ -1872,9 +1872,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerGetCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		public static FTError StrokerGetCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
-			int ret = FTStrokerGetCountsNative(stroker, anumPoints, anumContours);
+			FTError ret = StrokerGetCountsNative(stroker, anumPoints, anumContours);
 			return ret;
 		}
 
@@ -1901,11 +1901,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerGetCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		public static FTError StrokerGetCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
 			fixed (uint* panumPoints = &anumPoints)
 			{
-				int ret = FTStrokerGetCountsNative(stroker, (uint*)panumPoints, anumContours);
+				FTError ret = StrokerGetCountsNative(stroker, (uint*)panumPoints, anumContours);
 				return ret;
 			}
 		}
@@ -1933,11 +1933,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerGetCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
+		public static FTError StrokerGetCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
 		{
 			fixed (uint* panumContours = &anumContours)
 			{
-				int ret = FTStrokerGetCountsNative(stroker, anumPoints, (uint*)panumContours);
+				FTError ret = StrokerGetCountsNative(stroker, anumPoints, (uint*)panumContours);
 				return ret;
 			}
 		}
@@ -1965,13 +1965,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTStrokerGetCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
+		public static FTError StrokerGetCounts([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
 		{
 			fixed (uint* panumPoints = &anumPoints)
 			{
 				fixed (uint* panumContours = &anumContours)
 				{
-					int ret = FTStrokerGetCountsNative(stroker, (uint*)panumPoints, (uint*)panumContours);
+					FTError ret = StrokerGetCountsNative(stroker, (uint*)panumPoints, (uint*)panumContours);
 					return ret;
 				}
 			}
@@ -1999,7 +1999,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_Export")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTStrokerExportNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		internal static void StrokerExportNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTStroker, FTOutline*, void>)funcTable[111])(stroker, outline);
@@ -2029,9 +2029,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_Export")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTStrokerExport([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		public static void StrokerExport([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
-			FTStrokerExportNative(stroker, outline);
+			StrokerExportNative(stroker, outline);
 		}
 
 		/// <summary>
@@ -2055,11 +2055,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_Export")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTStrokerExport([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
+		public static void StrokerExport([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				FTStrokerExportNative(stroker, (FTOutline*)poutline);
+				StrokerExportNative(stroker, (FTOutline*)poutline);
 			}
 		}
 
@@ -2078,7 +2078,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Stroker_Done")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTStrokerDoneNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
+		internal static void StrokerDoneNative([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTStroker, void>)funcTable[112])(stroker);
@@ -2101,9 +2101,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_Done")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTStrokerDone([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
+		public static void StrokerDone([NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker)
 		{
-			FTStrokerDoneNative(stroker);
+			StrokerDoneNative(stroker);
 		}
 
 		/// <summary>
@@ -2133,12 +2133,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Glyph_Stroke")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTGlyphStrokeNative([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
+		internal static FTError GlyphStrokeNative([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTGlyph*, FTStroker, byte, int>)funcTable[113])(pglyph, stroker, destroy);
+			return ((delegate* unmanaged[Cdecl]<FTGlyph*, FTStroker, byte, FTError>)funcTable[113])(pglyph, stroker, destroy);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, FTStroker, byte, int>)funcTable[113])((nint)pglyph, stroker, destroy);
+			return (FTError)((delegate* unmanaged[Cdecl]<nint, FTStroker, byte, FTError>)funcTable[113])((nint)pglyph, stroker, destroy);
 			#endif
 		}
 
@@ -2168,9 +2168,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_Stroke")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTGlyphStroke([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
+		public static FTError GlyphStroke([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
 		{
-			int ret = FTGlyphStrokeNative(pglyph, stroker, destroy);
+			FTError ret = GlyphStrokeNative(pglyph, stroker, destroy);
 			return ret;
 		}
 
@@ -2200,11 +2200,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_Stroke")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTGlyphStroke([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] ref FTGlyph pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
+		public static FTError GlyphStroke([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] ref FTGlyph pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
 		{
 			fixed (FTGlyph* ppglyph = &pglyph)
 			{
-				int ret = FTGlyphStrokeNative((FTGlyph*)ppglyph, stroker, destroy);
+				FTError ret = GlyphStrokeNative((FTGlyph*)ppglyph, stroker, destroy);
 				return ret;
 			}
 		}
@@ -2240,12 +2240,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Glyph_StrokeBorder")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTGlyphStrokeBorderNative([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "inside")] [NativeName(NativeNameType.Type, "FT_Bool")] byte inside, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
+		internal static FTError GlyphStrokeBorderNative([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "inside")] [NativeName(NativeNameType.Type, "FT_Bool")] byte inside, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTGlyph*, FTStroker, byte, byte, int>)funcTable[114])(pglyph, stroker, inside, destroy);
+			return ((delegate* unmanaged[Cdecl]<FTGlyph*, FTStroker, byte, byte, FTError>)funcTable[114])(pglyph, stroker, inside, destroy);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, FTStroker, byte, byte, int>)funcTable[114])((nint)pglyph, stroker, inside, destroy);
+			return (FTError)((delegate* unmanaged[Cdecl]<nint, FTStroker, byte, byte, FTError>)funcTable[114])((nint)pglyph, stroker, inside, destroy);
 			#endif
 		}
 
@@ -2279,9 +2279,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_StrokeBorder")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTGlyphStrokeBorder([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "inside")] [NativeName(NativeNameType.Type, "FT_Bool")] byte inside, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
+		public static FTError GlyphStrokeBorder([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "inside")] [NativeName(NativeNameType.Type, "FT_Bool")] byte inside, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
 		{
-			int ret = FTGlyphStrokeBorderNative(pglyph, stroker, inside, destroy);
+			FTError ret = GlyphStrokeBorderNative(pglyph, stroker, inside, destroy);
 			return ret;
 		}
 
@@ -2315,11 +2315,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_StrokeBorder")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTGlyphStrokeBorder([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] ref FTGlyph pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "inside")] [NativeName(NativeNameType.Type, "FT_Bool")] byte inside, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
+		public static FTError GlyphStrokeBorder([NativeName(NativeNameType.Param, "pglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] ref FTGlyph pglyph, [NativeName(NativeNameType.Param, "stroker")] [NativeName(NativeNameType.Type, "FT_Stroker")] FTStroker stroker, [NativeName(NativeNameType.Param, "inside")] [NativeName(NativeNameType.Type, "FT_Bool")] byte inside, [NativeName(NativeNameType.Param, "destroy")] [NativeName(NativeNameType.Type, "FT_Bool")] byte destroy)
 		{
 			fixed (FTGlyph* ppglyph = &pglyph)
 			{
-				int ret = FTGlyphStrokeBorderNative((FTGlyph*)ppglyph, stroker, inside, destroy);
+				FTError ret = GlyphStrokeBorderNative((FTGlyph*)ppglyph, stroker, inside, destroy);
 				return ret;
 			}
 		}
@@ -2341,7 +2341,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_Embolden")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTGlyphSlotEmboldenNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
+		internal static void GlyphSlotEmboldenNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTGlyphSlot, void>)funcTable[115])(slot);
@@ -2366,9 +2366,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_Embolden")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTGlyphSlotEmbolden([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
+		public static void GlyphSlotEmbolden([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
 		{
-			FTGlyphSlotEmboldenNative(slot);
+			GlyphSlotEmboldenNative(slot);
 		}
 
 		/// <summary>
@@ -2382,7 +2382,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_AdjustWeight")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTGlyphSlotAdjustWeightNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xdelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xdelta, [NativeName(NativeNameType.Param, "ydelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int ydelta)
+		internal static void GlyphSlotAdjustWeightNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xdelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xdelta, [NativeName(NativeNameType.Param, "ydelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int ydelta)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTGlyphSlot, int, int, void>)funcTable[116])(slot, xdelta, ydelta);
@@ -2401,9 +2401,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_AdjustWeight")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTGlyphSlotAdjustWeight([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xdelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xdelta, [NativeName(NativeNameType.Param, "ydelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int ydelta)
+		public static void GlyphSlotAdjustWeight([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xdelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xdelta, [NativeName(NativeNameType.Param, "ydelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int ydelta)
 		{
-			FTGlyphSlotAdjustWeightNative(slot, xdelta, ydelta);
+			GlyphSlotAdjustWeightNative(slot, xdelta, ydelta);
 		}
 
 		/// <summary>
@@ -2412,7 +2412,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_Oblique")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTGlyphSlotObliqueNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
+		internal static void GlyphSlotObliqueNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTGlyphSlot, void>)funcTable[117])(slot);
@@ -2426,9 +2426,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_Oblique")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTGlyphSlotOblique([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
+		public static void GlyphSlotOblique([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
 		{
-			FTGlyphSlotObliqueNative(slot);
+			GlyphSlotObliqueNative(slot);
 		}
 
 		/// <summary>
@@ -2440,7 +2440,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_Slant")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTGlyphSlotSlantNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xslant, [NativeName(NativeNameType.Param, "yslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int yslant)
+		internal static void GlyphSlotSlantNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xslant, [NativeName(NativeNameType.Param, "yslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int yslant)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTGlyphSlot, int, int, void>)funcTable[118])(slot, xslant, yslant);
@@ -2457,9 +2457,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_Slant")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTGlyphSlotSlant([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xslant, [NativeName(NativeNameType.Param, "yslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int yslant)
+		public static void GlyphSlotSlant([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xslant, [NativeName(NativeNameType.Param, "yslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int yslant)
 		{
-			FTGlyphSlotSlantNative(slot, xslant, yslant);
+			GlyphSlotSlantNative(slot, xslant, yslant);
 		}
 
 		/// <summary>
@@ -2480,7 +2480,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Sin")]
 		[return: NativeName(NativeNameType.Type, "FT_Fixed")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTSinNative([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		internal static int SinNative([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[119])(angle);
@@ -2506,9 +2506,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Sin")]
 		[return: NativeName(NativeNameType.Type, "FT_Fixed")]
-		public static int FTSin([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		public static int Sin([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
-			int ret = FTSinNative(angle);
+			int ret = SinNative(angle);
 			return ret;
 		}
 
@@ -2530,7 +2530,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Cos")]
 		[return: NativeName(NativeNameType.Type, "FT_Fixed")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTCosNative([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		internal static int CosNative([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[120])(angle);
@@ -2556,9 +2556,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Cos")]
 		[return: NativeName(NativeNameType.Type, "FT_Fixed")]
-		public static int FTCos([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		public static int Cos([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
-			int ret = FTCosNative(angle);
+			int ret = CosNative(angle);
 			return ret;
 		}
 
@@ -2579,7 +2579,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Tan")]
 		[return: NativeName(NativeNameType.Type, "FT_Fixed")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTTanNative([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		internal static int TanNative([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[121])(angle);
@@ -2604,9 +2604,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Tan")]
 		[return: NativeName(NativeNameType.Type, "FT_Fixed")]
-		public static int FTTan([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		public static int Tan([NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
-			int ret = FTTanNative(angle);
+			int ret = TanNative(angle);
 			return ret;
 		}
 
@@ -2630,7 +2630,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Atan2")]
 		[return: NativeName(NativeNameType.Type, "FT_Angle")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTAtan2Native([NativeName(NativeNameType.Param, "x")] [NativeName(NativeNameType.Type, "FT_Fixed")] int x, [NativeName(NativeNameType.Param, "y")] [NativeName(NativeNameType.Type, "FT_Fixed")] int y)
+		internal static int Atan2Native([NativeName(NativeNameType.Param, "x")] [NativeName(NativeNameType.Type, "FT_Fixed")] int x, [NativeName(NativeNameType.Param, "y")] [NativeName(NativeNameType.Type, "FT_Fixed")] int y)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int, int>)funcTable[122])(x, y);
@@ -2658,9 +2658,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Atan2")]
 		[return: NativeName(NativeNameType.Type, "FT_Angle")]
-		public static int FTAtan2([NativeName(NativeNameType.Param, "x")] [NativeName(NativeNameType.Type, "FT_Fixed")] int x, [NativeName(NativeNameType.Param, "y")] [NativeName(NativeNameType.Type, "FT_Fixed")] int y)
+		public static int Atan2([NativeName(NativeNameType.Param, "x")] [NativeName(NativeNameType.Type, "FT_Fixed")] int x, [NativeName(NativeNameType.Param, "y")] [NativeName(NativeNameType.Type, "FT_Fixed")] int y)
 		{
-			int ret = FTAtan2Native(x, y);
+			int ret = Atan2Native(x, y);
 			return ret;
 		}
 
@@ -2684,7 +2684,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Angle_Diff")]
 		[return: NativeName(NativeNameType.Type, "FT_Angle")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTAngleDiffNative([NativeName(NativeNameType.Param, "angle1")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle1, [NativeName(NativeNameType.Param, "angle2")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle2)
+		internal static int AngleDiffNative([NativeName(NativeNameType.Param, "angle1")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle1, [NativeName(NativeNameType.Param, "angle2")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle2)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int, int>)funcTable[123])(angle1, angle2);
@@ -2712,9 +2712,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Angle_Diff")]
 		[return: NativeName(NativeNameType.Type, "FT_Angle")]
-		public static int FTAngleDiff([NativeName(NativeNameType.Param, "angle1")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle1, [NativeName(NativeNameType.Param, "angle2")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle2)
+		public static int AngleDiff([NativeName(NativeNameType.Param, "angle1")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle1, [NativeName(NativeNameType.Param, "angle2")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle2)
 		{
-			int ret = FTAngleDiffNative(angle1, angle2);
+			int ret = AngleDiffNative(angle1, angle2);
 			return ret;
 		}
 
@@ -2742,7 +2742,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Vector_Unit")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTVectorUnitNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		internal static void VectorUnitNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTVector*, int, void>)funcTable[124])(vec, angle);
@@ -2774,9 +2774,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Unit")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorUnit([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		public static void VectorUnit([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
-			FTVectorUnitNative(vec, angle);
+			VectorUnitNative(vec, angle);
 		}
 
 		/// <summary>
@@ -2802,11 +2802,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Unit")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorUnit([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		public static void VectorUnit([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
 			fixed (FTVector* pvec = &vec)
 			{
-				FTVectorUnitNative((FTVector*)pvec, angle);
+				VectorUnitNative((FTVector*)pvec, angle);
 			}
 		}
 
@@ -2830,7 +2830,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Vector_Rotate")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTVectorRotateNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		internal static void VectorRotateNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTVector*, int, void>)funcTable[125])(vec, angle);
@@ -2858,9 +2858,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Rotate")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorRotate([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		public static void VectorRotate([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
-			FTVectorRotateNative(vec, angle);
+			VectorRotateNative(vec, angle);
 		}
 
 		/// <summary>
@@ -2882,11 +2882,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Rotate")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorRotate([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		public static void VectorRotate([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
 			fixed (FTVector* pvec = &vec)
 			{
-				FTVectorRotateNative((FTVector*)pvec, angle);
+				VectorRotateNative((FTVector*)pvec, angle);
 			}
 		}
 
@@ -2907,7 +2907,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Vector_Length")]
 		[return: NativeName(NativeNameType.Type, "FT_Fixed")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTVectorLengthNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec)
+		internal static int VectorLengthNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTVector*, int>)funcTable[126])(vec);
@@ -2932,9 +2932,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Length")]
 		[return: NativeName(NativeNameType.Type, "FT_Fixed")]
-		public static int FTVectorLength([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec)
+		public static int VectorLength([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec)
 		{
-			int ret = FTVectorLengthNative(vec);
+			int ret = VectorLengthNative(vec);
 			return ret;
 		}
 
@@ -2954,11 +2954,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Length")]
 		[return: NativeName(NativeNameType.Type, "FT_Fixed")]
-		public static int FTVectorLength([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec)
+		public static int VectorLength([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec)
 		{
 			fixed (FTVector* pvec = &vec)
 			{
-				int ret = FTVectorLengthNative((FTVector*)pvec);
+				int ret = VectorLengthNative((FTVector*)pvec);
 				return ret;
 			}
 		}
@@ -2985,7 +2985,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Vector_Polarize")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTVectorPolarizeNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
+		internal static void VectorPolarizeNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTVector*, int*, int*, void>)funcTable[127])(vec, length, angle);
@@ -3015,9 +3015,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Polarize")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
+		public static void VectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
 		{
-			FTVectorPolarizeNative(vec, length, angle);
+			VectorPolarizeNative(vec, length, angle);
 		}
 
 		/// <summary>
@@ -3041,11 +3041,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Polarize")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
+		public static void VectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
 		{
 			fixed (FTVector* pvec = &vec)
 			{
-				FTVectorPolarizeNative((FTVector*)pvec, length, angle);
+				VectorPolarizeNative((FTVector*)pvec, length, angle);
 			}
 		}
 
@@ -3070,11 +3070,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Polarize")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] ref int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
+		public static void VectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] ref int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
 		{
 			fixed (int* plength = &length)
 			{
-				FTVectorPolarizeNative(vec, (int*)plength, angle);
+				VectorPolarizeNative(vec, (int*)plength, angle);
 			}
 		}
 
@@ -3099,13 +3099,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Polarize")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] ref int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
+		public static void VectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] ref int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] int* angle)
 		{
 			fixed (FTVector* pvec = &vec)
 			{
 				fixed (int* plength = &length)
 				{
-					FTVectorPolarizeNative((FTVector*)pvec, (int*)plength, angle);
+					VectorPolarizeNative((FTVector*)pvec, (int*)plength, angle);
 				}
 			}
 		}
@@ -3131,11 +3131,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Polarize")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] ref int angle)
+		public static void VectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] ref int angle)
 		{
 			fixed (int* pangle = &angle)
 			{
-				FTVectorPolarizeNative(vec, length, (int*)pangle);
+				VectorPolarizeNative(vec, length, (int*)pangle);
 			}
 		}
 
@@ -3160,13 +3160,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Polarize")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] ref int angle)
+		public static void VectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] int* length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] ref int angle)
 		{
 			fixed (FTVector* pvec = &vec)
 			{
 				fixed (int* pangle = &angle)
 				{
-					FTVectorPolarizeNative((FTVector*)pvec, length, (int*)pangle);
+					VectorPolarizeNative((FTVector*)pvec, length, (int*)pangle);
 				}
 			}
 		}
@@ -3192,13 +3192,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Polarize")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] ref int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] ref int angle)
+		public static void VectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] ref int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] ref int angle)
 		{
 			fixed (int* plength = &length)
 			{
 				fixed (int* pangle = &angle)
 				{
-					FTVectorPolarizeNative(vec, (int*)plength, (int*)pangle);
+					VectorPolarizeNative(vec, (int*)plength, (int*)pangle);
 				}
 			}
 		}
@@ -3224,7 +3224,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_Polarize")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] ref int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] ref int angle)
+		public static void VectorPolarize([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed *")] ref int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle *")] ref int angle)
 		{
 			fixed (FTVector* pvec = &vec)
 			{
@@ -3232,7 +3232,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (int* pangle = &angle)
 					{
-						FTVectorPolarizeNative((FTVector*)pvec, (int*)plength, (int*)pangle);
+						VectorPolarizeNative((FTVector*)pvec, (int*)plength, (int*)pangle);
 					}
 				}
 			}
@@ -3260,7 +3260,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Vector_From_Polar")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTVectorFromPolarNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed")] int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		internal static void VectorFromPolarNative([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed")] int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTVector*, int, int, void>)funcTable[128])(vec, length, angle);
@@ -3290,9 +3290,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_From_Polar")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorFromPolar([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed")] int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		public static void VectorFromPolar([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed")] int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
-			FTVectorFromPolarNative(vec, length, angle);
+			VectorFromPolarNative(vec, length, angle);
 		}
 
 		/// <summary>
@@ -3316,11 +3316,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Vector_From_Polar")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTVectorFromPolar([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed")] int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
+		public static void VectorFromPolar([NativeName(NativeNameType.Param, "vec")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector vec, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_Fixed")] int length, [NativeName(NativeNameType.Param, "angle")] [NativeName(NativeNameType.Type, "FT_Angle")] int angle)
 		{
 			fixed (FTVector* pvec = &vec)
 			{
-				FTVectorFromPolarNative((FTVector*)pvec, length, angle);
+				VectorFromPolarNative((FTVector*)pvec, length, angle);
 			}
 		}
 

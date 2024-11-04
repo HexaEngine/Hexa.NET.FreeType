@@ -128,7 +128,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (uint* paglyphIndex = &aglyphIndex)
 			{
-				byte ret = FreeType.FTGetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, acolorIndex, iterator);
+				byte ret = FreeType.GetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, acolorIndex, iterator);
 				return ret;
 			}
 		}
@@ -244,7 +244,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (uint* pacolorIndex = &acolorIndex)
 			{
-				byte ret = FreeType.FTGetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, (uint*)pacolorIndex, iterator);
+				byte ret = FreeType.GetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, (uint*)pacolorIndex, iterator);
 				return ret;
 			}
 		}
@@ -362,7 +362,7 @@ namespace Hexa.NET.FreeType
 			{
 				fixed (uint* pacolorIndex = &acolorIndex)
 				{
-					byte ret = FreeType.FTGetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, (uint*)pacolorIndex, iterator);
+					byte ret = FreeType.GetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, (uint*)pacolorIndex, iterator);
 					return ret;
 				}
 			}
@@ -479,7 +479,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTLayerIterator* piterator = &iterator)
 			{
-				byte ret = FreeType.FTGetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, acolorIndex, (FTLayerIterator*)piterator);
+				byte ret = FreeType.GetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, acolorIndex, (FTLayerIterator*)piterator);
 				return ret;
 			}
 		}
@@ -597,7 +597,7 @@ namespace Hexa.NET.FreeType
 			{
 				fixed (FTLayerIterator* piterator = &iterator)
 				{
-					byte ret = FreeType.FTGetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, acolorIndex, (FTLayerIterator*)piterator);
+					byte ret = FreeType.GetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, acolorIndex, (FTLayerIterator*)piterator);
 					return ret;
 				}
 			}
@@ -716,7 +716,7 @@ namespace Hexa.NET.FreeType
 			{
 				fixed (FTLayerIterator* piterator = &iterator)
 				{
-					byte ret = FreeType.FTGetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, (uint*)pacolorIndex, (FTLayerIterator*)piterator);
+					byte ret = FreeType.GetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, (uint*)pacolorIndex, (FTLayerIterator*)piterator);
 					return ret;
 				}
 			}
@@ -837,7 +837,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTLayerIterator* piterator = &iterator)
 					{
-						byte ret = FreeType.FTGetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, (uint*)pacolorIndex, (FTLayerIterator*)piterator);
+						byte ret = FreeType.GetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, (uint*)pacolorIndex, (FTLayerIterator*)piterator);
 						return ret;
 					}
 				}
@@ -936,7 +936,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		public static byte GetColorGlyphPaint(this FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "root_transform")] [NativeName(NativeNameType.Type, "FT_Color_Root_Transform")] FTColorRootTransform rootTransform, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
 		{
-			byte ret = FreeType.FTGetColorGlyphPaintNative(face, baseGlyph, rootTransform, paint);
+			byte ret = FreeType.GetColorGlyphPaintNative(face, baseGlyph, rootTransform, paint);
 			return ret;
 		}
 
@@ -1034,7 +1034,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTOpaquePaint* ppaint = &paint)
 			{
-				byte ret = FreeType.FTGetColorGlyphPaintNative(face, baseGlyph, rootTransform, (FTOpaquePaint*)ppaint);
+				byte ret = FreeType.GetColorGlyphPaintNative(face, baseGlyph, rootTransform, (FTOpaquePaint*)ppaint);
 				return ret;
 			}
 		}
@@ -1072,7 +1072,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		public static byte GetColorGlyphClipBox(this FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "clip_box")] [NativeName(NativeNameType.Type, "FT_ClipBox *")] FTClipBox* clipBox)
 		{
-			byte ret = FreeType.FTGetColorGlyphClipBoxNative(face, baseGlyph, clipBox);
+			byte ret = FreeType.GetColorGlyphClipBoxNative(face, baseGlyph, clipBox);
 			return ret;
 		}
 
@@ -1111,7 +1111,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTClipBox* pclipBox = &clipBox)
 			{
-				byte ret = FreeType.FTGetColorGlyphClipBoxNative(face, baseGlyph, (FTClipBox*)pclipBox);
+				byte ret = FreeType.GetColorGlyphClipBoxNative(face, baseGlyph, (FTClipBox*)pclipBox);
 				return ret;
 			}
 		}
@@ -1163,7 +1163,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		public static byte GetPaintLayers(this FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
 		{
-			byte ret = FreeType.FTGetPaintLayersNative(face, iterator, paint);
+			byte ret = FreeType.GetPaintLayersNative(face, iterator, paint);
 			return ret;
 		}
 
@@ -1216,7 +1216,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTLayerIterator* piterator = &iterator)
 			{
-				byte ret = FreeType.FTGetPaintLayersNative(face, (FTLayerIterator*)piterator, paint);
+				byte ret = FreeType.GetPaintLayersNative(face, (FTLayerIterator*)piterator, paint);
 				return ret;
 			}
 		}
@@ -1270,7 +1270,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTOpaquePaint* ppaint = &paint)
 			{
-				byte ret = FreeType.FTGetPaintLayersNative(face, iterator, (FTOpaquePaint*)ppaint);
+				byte ret = FreeType.GetPaintLayersNative(face, iterator, (FTOpaquePaint*)ppaint);
 				return ret;
 			}
 		}
@@ -1326,7 +1326,7 @@ namespace Hexa.NET.FreeType
 			{
 				fixed (FTOpaquePaint* ppaint = &paint)
 				{
-					byte ret = FreeType.FTGetPaintLayersNative(face, (FTLayerIterator*)piterator, (FTOpaquePaint*)ppaint);
+					byte ret = FreeType.GetPaintLayersNative(face, (FTLayerIterator*)piterator, (FTOpaquePaint*)ppaint);
 					return ret;
 				}
 			}
@@ -1368,7 +1368,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		public static byte GetColorlineStops(this FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] FTColorStop* colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] FTColorStopIterator* iterator)
 		{
-			byte ret = FreeType.FTGetColorlineStopsNative(face, colorStop, iterator);
+			byte ret = FreeType.GetColorlineStopsNative(face, colorStop, iterator);
 			return ret;
 		}
 
@@ -1410,7 +1410,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTColorStop* pcolorStop = &colorStop)
 			{
-				byte ret = FreeType.FTGetColorlineStopsNative(face, (FTColorStop*)pcolorStop, iterator);
+				byte ret = FreeType.GetColorlineStopsNative(face, (FTColorStop*)pcolorStop, iterator);
 				return ret;
 			}
 		}
@@ -1453,7 +1453,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTColorStopIterator* piterator = &iterator)
 			{
-				byte ret = FreeType.FTGetColorlineStopsNative(face, colorStop, (FTColorStopIterator*)piterator);
+				byte ret = FreeType.GetColorlineStopsNative(face, colorStop, (FTColorStopIterator*)piterator);
 				return ret;
 			}
 		}
@@ -1498,7 +1498,7 @@ namespace Hexa.NET.FreeType
 			{
 				fixed (FTColorStopIterator* piterator = &iterator)
 				{
-					byte ret = FreeType.FTGetColorlineStopsNative(face, (FTColorStop*)pcolorStop, (FTColorStopIterator*)piterator);
+					byte ret = FreeType.GetColorlineStopsNative(face, (FTColorStop*)pcolorStop, (FTColorStopIterator*)piterator);
 					return ret;
 				}
 			}
@@ -1535,7 +1535,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		public static byte GetPaint(this FTFace face, [NativeName(NativeNameType.Param, "opaque_paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint")] FTOpaquePaint opaquePaint, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_COLR_Paint *")] FTCOLRPaint* paint)
 		{
-			byte ret = FreeType.FTGetPaintNative(face, opaquePaint, paint);
+			byte ret = FreeType.GetPaintNative(face, opaquePaint, paint);
 			return ret;
 		}
 
@@ -1572,7 +1572,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTCOLRPaint* ppaint = &paint)
 			{
-				byte ret = FreeType.FTGetPaintNative(face, opaquePaint, (FTCOLRPaint*)ppaint);
+				byte ret = FreeType.GetPaintNative(face, opaquePaint, (FTCOLRPaint*)ppaint);
 				return ret;
 			}
 		}
@@ -1609,7 +1609,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void *")]
 		public static void* GetSfntTable(this FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_Sfnt_Tag")] FTSfntTag tag)
 		{
-			void* ret = FreeType.FTGetSfntTableNative(face, tag);
+			void* ret = FreeType.GetSfntTableNative(face, tag);
 			return ret;
 		}
 
@@ -1673,9 +1673,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Load_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int LoadSfntTable(this FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		public static FTError LoadSfntTable(this FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
-			int ret = FreeType.FTLoadSfntTableNative(face, tag, offset, buffer, length);
+			FTError ret = FreeType.LoadSfntTableNative(face, tag, offset, buffer, length);
 			return ret;
 		}
 
@@ -1739,11 +1739,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Load_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int LoadSfntTable(this FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] ref byte buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		public static FTError LoadSfntTable(this FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] ref byte buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
 			fixed (byte* pbuffer = &buffer)
 			{
-				int ret = FreeType.FTLoadSfntTableNative(face, tag, offset, (byte*)pbuffer, length);
+				FTError ret = FreeType.LoadSfntTableNative(face, tag, offset, (byte*)pbuffer, length);
 				return ret;
 			}
 		}
@@ -1808,11 +1808,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Load_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int LoadSfntTable(this FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
+		public static FTError LoadSfntTable(this FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
 		{
 			fixed (uint* plength = &length)
 			{
-				int ret = FreeType.FTLoadSfntTableNative(face, tag, offset, buffer, (uint*)plength);
+				FTError ret = FreeType.LoadSfntTableNative(face, tag, offset, buffer, (uint*)plength);
 				return ret;
 			}
 		}
@@ -1877,13 +1877,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Load_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int LoadSfntTable(this FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] ref byte buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
+		public static FTError LoadSfntTable(this FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] ref byte buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
 		{
 			fixed (byte* pbuffer = &buffer)
 			{
 				fixed (uint* plength = &length)
 				{
-					int ret = FreeType.FTLoadSfntTableNative(face, tag, offset, (byte*)pbuffer, (uint*)plength);
+					FTError ret = FreeType.LoadSfntTableNative(face, tag, offset, (byte*)pbuffer, (uint*)plength);
 					return ret;
 				}
 			}
@@ -1920,9 +1920,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Sfnt_Table_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int SfntTableInfo(this FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		public static FTError SfntTableInfo(this FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
-			int ret = FreeType.FTSfntTableInfoNative(face, tableIndex, tag, length);
+			FTError ret = FreeType.SfntTableInfoNative(face, tableIndex, tag, length);
 			return ret;
 		}
 
@@ -1957,11 +1957,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Sfnt_Table_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int SfntTableInfo(this FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		public static FTError SfntTableInfo(this FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
 			fixed (uint* ptag = &tag)
 			{
-				int ret = FreeType.FTSfntTableInfoNative(face, tableIndex, (uint*)ptag, length);
+				FTError ret = FreeType.SfntTableInfoNative(face, tableIndex, (uint*)ptag, length);
 				return ret;
 			}
 		}
@@ -1997,11 +1997,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Sfnt_Table_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int SfntTableInfo(this FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
+		public static FTError SfntTableInfo(this FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
 		{
 			fixed (uint* plength = &length)
 			{
-				int ret = FreeType.FTSfntTableInfoNative(face, tableIndex, tag, (uint*)plength);
+				FTError ret = FreeType.SfntTableInfoNative(face, tableIndex, tag, (uint*)plength);
 				return ret;
 			}
 		}
@@ -2037,13 +2037,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Sfnt_Table_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int SfntTableInfo(this FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
+		public static FTError SfntTableInfo(this FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
 		{
 			fixed (uint* ptag = &tag)
 			{
 				fixed (uint* plength = &length)
 				{
-					int ret = FreeType.FTSfntTableInfoNative(face, tableIndex, (uint*)ptag, (uint*)plength);
+					FTError ret = FreeType.SfntTableInfoNative(face, tableIndex, (uint*)ptag, (uint*)plength);
 					return ret;
 				}
 			}
@@ -2067,7 +2067,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "FT_UInt")]
 		public static uint GetSfntNameCount(this FTFace face)
 		{
-			uint ret = FreeType.FTGetSfntNameCountNative(face);
+			uint ret = FreeType.GetSfntNameCountNative(face);
 			return ret;
 		}
 
@@ -2103,9 +2103,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_Name")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSfntName(this FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] FTSfntName* aname)
+		public static FTError GetSfntName(this FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] FTSfntName* aname)
 		{
-			int ret = FreeType.FTGetSfntNameNative(face, idx, aname);
+			FTError ret = FreeType.GetSfntNameNative(face, idx, aname);
 			return ret;
 		}
 
@@ -2141,11 +2141,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_Name")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSfntName(this FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] ref FTSfntName aname)
+		public static FTError GetSfntName(this FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] ref FTSfntName aname)
 		{
 			fixed (FTSfntName* paname = &aname)
 			{
-				int ret = FreeType.FTGetSfntNameNative(face, idx, (FTSfntName*)paname);
+				FTError ret = FreeType.GetSfntNameNative(face, idx, (FTSfntName*)paname);
 				return ret;
 			}
 		}
@@ -2183,9 +2183,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_LangTag")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSfntLangTag(this FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] FTSfntLangTag* alangTag)
+		public static FTError GetSfntLangTag(this FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] FTSfntLangTag* alangTag)
 		{
-			int ret = FreeType.FTGetSfntLangTagNative(face, langID, alangTag);
+			FTError ret = FreeType.GetSfntLangTagNative(face, langID, alangTag);
 			return ret;
 		}
 
@@ -2222,11 +2222,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_LangTag")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSfntLangTag(this FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] ref FTSfntLangTag alangTag)
+		public static FTError GetSfntLangTag(this FTFace face, [NativeName(NativeNameType.Param, "langID")] [NativeName(NativeNameType.Type, "FT_UInt")] uint langID, [NativeName(NativeNameType.Param, "alangTag")] [NativeName(NativeNameType.Type, "FT_SfntLangTag *")] ref FTSfntLangTag alangTag)
 		{
 			fixed (FTSfntLangTag* palangTag = &alangTag)
 			{
-				int ret = FreeType.FTGetSfntLangTagNative(face, langID, (FTSfntLangTag*)palangTag);
+				FTError ret = FreeType.GetSfntLangTagNative(face, langID, (FTSfntLangTag*)palangTag);
 				return ret;
 			}
 		}
@@ -2319,9 +2319,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Render_Glyph")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int RenderGlyph(this FTGlyphSlot slot, [NativeName(NativeNameType.Param, "render_mode")] [NativeName(NativeNameType.Type, "FT_Render_Mode")] FTRenderMode renderMode)
+		public static FTError RenderGlyph(this FTGlyphSlot slot, [NativeName(NativeNameType.Param, "render_mode")] [NativeName(NativeNameType.Type, "FT_Render_Mode")] FTRenderMode renderMode)
 		{
-			int ret = FreeType.FTRenderGlyphNative(slot, renderMode);
+			FTError ret = FreeType.RenderGlyphNative(slot, renderMode);
 			return ret;
 		}
 
@@ -2362,9 +2362,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
-			int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, parg1, parg2, pTransform);
+			FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, parg1, parg2, pTransform);
 			return ret;
 		}
 
@@ -2405,11 +2405,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
-				int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, parg1, parg2, pTransform);
+				FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, parg1, parg2, pTransform);
 				return ret;
 			}
 		}
@@ -2451,11 +2451,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, parg1, parg2, pTransform);
+				FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, parg1, parg2, pTransform);
 				return ret;
 			}
 		}
@@ -2497,13 +2497,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
 				fixed (uint* ppFlags = &pFlags)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, parg1, parg2, pTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, parg1, parg2, pTransform);
 					return ret;
 				}
 			}
@@ -2546,11 +2546,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* pparg1 = &parg1)
 			{
-				int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, (int*)pparg1, parg2, pTransform);
+				FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, (int*)pparg1, parg2, pTransform);
 				return ret;
 			}
 		}
@@ -2592,13 +2592,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
 				fixed (int* pparg1 = &parg1)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, (int*)pparg1, parg2, pTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, (int*)pparg1, parg2, pTransform);
 					return ret;
 				}
 			}
@@ -2641,13 +2641,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (uint* ppFlags = &pFlags)
 			{
 				fixed (int* pparg1 = &parg1)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, (int*)pparg1, parg2, pTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, (int*)pparg1, parg2, pTransform);
 					return ret;
 				}
 			}
@@ -2690,7 +2690,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -2698,7 +2698,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (int* pparg1 = &parg1)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, (int*)pparg1, parg2, pTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, (int*)pparg1, parg2, pTransform);
 						return ret;
 					}
 				}
@@ -2742,11 +2742,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* pparg2 = &parg2)
 			{
-				int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, parg1, (int*)pparg2, pTransform);
+				FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, parg1, (int*)pparg2, pTransform);
 				return ret;
 			}
 		}
@@ -2788,13 +2788,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
 				fixed (int* pparg2 = &parg2)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, parg1, (int*)pparg2, pTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, parg1, (int*)pparg2, pTransform);
 					return ret;
 				}
 			}
@@ -2837,13 +2837,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (uint* ppFlags = &pFlags)
 			{
 				fixed (int* pparg2 = &parg2)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, parg1, (int*)pparg2, pTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, parg1, (int*)pparg2, pTransform);
 					return ret;
 				}
 			}
@@ -2886,7 +2886,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -2894,7 +2894,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (int* pparg2 = &parg2)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, parg1, (int*)pparg2, pTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, parg1, (int*)pparg2, pTransform);
 						return ret;
 					}
 				}
@@ -2938,13 +2938,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* pparg1 = &parg1)
 			{
 				fixed (int* pparg2 = &parg2)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, (int*)pparg1, (int*)pparg2, pTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, (int*)pparg1, (int*)pparg2, pTransform);
 					return ret;
 				}
 			}
@@ -2987,7 +2987,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -2995,7 +2995,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (int* pparg2 = &parg2)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, (int*)pparg1, (int*)pparg2, pTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, (int*)pparg1, (int*)pparg2, pTransform);
 						return ret;
 					}
 				}
@@ -3039,7 +3039,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (uint* ppFlags = &pFlags)
 			{
@@ -3047,7 +3047,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (int* pparg2 = &parg2)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, (int*)pparg1, (int*)pparg2, pTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, (int*)pparg1, (int*)pparg2, pTransform);
 						return ret;
 					}
 				}
@@ -3091,7 +3091,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] FTMatrix* pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -3101,7 +3101,7 @@ namespace Hexa.NET.FreeType
 					{
 						fixed (int* pparg2 = &parg2)
 						{
-							int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, (int*)pparg1, (int*)pparg2, pTransform);
+							FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, (int*)pparg1, (int*)pparg2, pTransform);
 							return ret;
 						}
 					}
@@ -3146,11 +3146,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (FTMatrix* ppTransform = &pTransform)
 			{
-				int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, parg1, parg2, (FTMatrix*)ppTransform);
+				FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, parg1, parg2, (FTMatrix*)ppTransform);
 				return ret;
 			}
 		}
@@ -3192,13 +3192,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
 				fixed (FTMatrix* ppTransform = &pTransform)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, parg1, parg2, (FTMatrix*)ppTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, parg1, parg2, (FTMatrix*)ppTransform);
 					return ret;
 				}
 			}
@@ -3241,13 +3241,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (uint* ppFlags = &pFlags)
 			{
 				fixed (FTMatrix* ppTransform = &pTransform)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, parg1, parg2, (FTMatrix*)ppTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, parg1, parg2, (FTMatrix*)ppTransform);
 					return ret;
 				}
 			}
@@ -3290,7 +3290,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -3298,7 +3298,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTMatrix* ppTransform = &pTransform)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, parg1, parg2, (FTMatrix*)ppTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, parg1, parg2, (FTMatrix*)ppTransform);
 						return ret;
 					}
 				}
@@ -3342,13 +3342,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* pparg1 = &parg1)
 			{
 				fixed (FTMatrix* ppTransform = &pTransform)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, (int*)pparg1, parg2, (FTMatrix*)ppTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, (int*)pparg1, parg2, (FTMatrix*)ppTransform);
 					return ret;
 				}
 			}
@@ -3391,7 +3391,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -3399,7 +3399,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTMatrix* ppTransform = &pTransform)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, (int*)pparg1, parg2, (FTMatrix*)ppTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, (int*)pparg1, parg2, (FTMatrix*)ppTransform);
 						return ret;
 					}
 				}
@@ -3443,7 +3443,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (uint* ppFlags = &pFlags)
 			{
@@ -3451,7 +3451,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTMatrix* ppTransform = &pTransform)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, (int*)pparg1, parg2, (FTMatrix*)ppTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, (int*)pparg1, parg2, (FTMatrix*)ppTransform);
 						return ret;
 					}
 				}
@@ -3495,7 +3495,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -3505,7 +3505,7 @@ namespace Hexa.NET.FreeType
 					{
 						fixed (FTMatrix* ppTransform = &pTransform)
 						{
-							int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, (int*)pparg1, parg2, (FTMatrix*)ppTransform);
+							FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, (int*)pparg1, parg2, (FTMatrix*)ppTransform);
 							return ret;
 						}
 					}
@@ -3550,13 +3550,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* pparg2 = &parg2)
 			{
 				fixed (FTMatrix* ppTransform = &pTransform)
 				{
-					int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, parg1, (int*)pparg2, (FTMatrix*)ppTransform);
+					FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, parg1, (int*)pparg2, (FTMatrix*)ppTransform);
 					return ret;
 				}
 			}
@@ -3599,7 +3599,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -3607,7 +3607,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTMatrix* ppTransform = &pTransform)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, parg1, (int*)pparg2, (FTMatrix*)ppTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, parg1, (int*)pparg2, (FTMatrix*)ppTransform);
 						return ret;
 					}
 				}
@@ -3651,7 +3651,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (uint* ppFlags = &pFlags)
 			{
@@ -3659,7 +3659,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTMatrix* ppTransform = &pTransform)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, parg1, (int*)pparg2, (FTMatrix*)ppTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, parg1, (int*)pparg2, (FTMatrix*)ppTransform);
 						return ret;
 					}
 				}
@@ -3703,7 +3703,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] int* parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -3713,7 +3713,7 @@ namespace Hexa.NET.FreeType
 					{
 						fixed (FTMatrix* ppTransform = &pTransform)
 						{
-							int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, parg1, (int*)pparg2, (FTMatrix*)ppTransform);
+							FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, parg1, (int*)pparg2, (FTMatrix*)ppTransform);
 							return ret;
 						}
 					}
@@ -3758,7 +3758,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* pparg1 = &parg1)
 			{
@@ -3766,7 +3766,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTMatrix* ppTransform = &pTransform)
 					{
-						int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, (int*)pparg1, (int*)pparg2, (FTMatrix*)ppTransform);
+						FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, pFlags, (int*)pparg1, (int*)pparg2, (FTMatrix*)ppTransform);
 						return ret;
 					}
 				}
@@ -3810,7 +3810,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -3820,7 +3820,7 @@ namespace Hexa.NET.FreeType
 					{
 						fixed (FTMatrix* ppTransform = &pTransform)
 						{
-							int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, (int*)pparg1, (int*)pparg2, (FTMatrix*)ppTransform);
+							FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, pFlags, (int*)pparg1, (int*)pparg2, (FTMatrix*)ppTransform);
 							return ret;
 						}
 					}
@@ -3865,7 +3865,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] int* pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (uint* ppFlags = &pFlags)
 			{
@@ -3875,7 +3875,7 @@ namespace Hexa.NET.FreeType
 					{
 						fixed (FTMatrix* ppTransform = &pTransform)
 						{
-							int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, (int*)pparg1, (int*)pparg2, (FTMatrix*)ppTransform);
+							FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, pIndex, (uint*)ppFlags, (int*)pparg1, (int*)pparg2, (FTMatrix*)ppTransform);
 							return ret;
 						}
 					}
@@ -3920,7 +3920,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_SubGlyph_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
+		public static FTError GetSubGlyphInfo(this FTGlyphSlot glyph, [NativeName(NativeNameType.Param, "sub_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint subIndex, [NativeName(NativeNameType.Param, "p_index")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int pIndex, [NativeName(NativeNameType.Param, "p_flags")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint pFlags, [NativeName(NativeNameType.Param, "p_arg1")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg1, [NativeName(NativeNameType.Param, "p_arg2")] [NativeName(NativeNameType.Type, "FT_Int *")] ref int parg2, [NativeName(NativeNameType.Param, "p_transform")] [NativeName(NativeNameType.Type, "FT_Matrix *")] ref FTMatrix pTransform)
 		{
 			fixed (int* ppIndex = &pIndex)
 			{
@@ -3932,7 +3932,7 @@ namespace Hexa.NET.FreeType
 						{
 							fixed (FTMatrix* ppTransform = &pTransform)
 							{
-								int ret = FreeType.FTGetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, (int*)pparg1, (int*)pparg2, (FTMatrix*)ppTransform);
+								FTError ret = FreeType.GetSubGlyphInfoNative(glyph, subIndex, (int*)ppIndex, (uint*)ppFlags, (int*)pparg1, (int*)pparg2, (FTMatrix*)ppTransform);
 								return ret;
 							}
 						}
@@ -3964,9 +3964,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Glyph")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetGlyph(this FTGlyphSlot slot, [NativeName(NativeNameType.Param, "aglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* aglyph)
+		public static FTError GetGlyph(this FTGlyphSlot slot, [NativeName(NativeNameType.Param, "aglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* aglyph)
 		{
-			int ret = FreeType.FTGetGlyphNative(slot, aglyph);
+			FTError ret = FreeType.GetGlyphNative(slot, aglyph);
 			return ret;
 		}
 
@@ -3993,11 +3993,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Glyph")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetGlyph(this FTGlyphSlot slot, [NativeName(NativeNameType.Param, "aglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] ref FTGlyph aglyph)
+		public static FTError GetGlyph(this FTGlyphSlot slot, [NativeName(NativeNameType.Param, "aglyph")] [NativeName(NativeNameType.Type, "FT_Glyph *")] ref FTGlyph aglyph)
 		{
 			fixed (FTGlyph* paglyph = &aglyph)
 			{
-				int ret = FreeType.FTGetGlyphNative(slot, (FTGlyph*)paglyph);
+				FTError ret = FreeType.GetGlyphNative(slot, (FTGlyph*)paglyph);
 				return ret;
 			}
 		}
@@ -4018,9 +4018,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_Own_Bitmap")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int OwnBitmap(this FTGlyphSlot slot)
+		public static FTError OwnBitmap(this FTGlyphSlot slot)
 		{
-			int ret = FreeType.FTGlyphSlotOwnBitmapNative(slot);
+			FTError ret = FreeType.GlyphSlotOwnBitmapNative(slot);
 			return ret;
 		}
 
@@ -4042,7 +4042,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void Embolden(this FTGlyphSlot slot)
 		{
-			FreeType.FTGlyphSlotEmboldenNative(slot);
+			FreeType.GlyphSlotEmboldenNative(slot);
 		}
 
 		/// <summary>
@@ -4057,7 +4057,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void AdjustWeight(this FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xdelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xdelta, [NativeName(NativeNameType.Param, "ydelta")] [NativeName(NativeNameType.Type, "FT_Fixed")] int ydelta)
 		{
-			FreeType.FTGlyphSlotAdjustWeightNative(slot, xdelta, ydelta);
+			FreeType.GlyphSlotAdjustWeightNative(slot, xdelta, ydelta);
 		}
 
 		/// <summary>
@@ -4067,7 +4067,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void Oblique(this FTGlyphSlot slot)
 		{
-			FreeType.FTGlyphSlotObliqueNative(slot);
+			FreeType.GlyphSlotObliqueNative(slot);
 		}
 
 		/// <summary>
@@ -4080,7 +4080,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void Slant(this FTGlyphSlot slot, [NativeName(NativeNameType.Param, "xslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int xslant, [NativeName(NativeNameType.Param, "yslant")] [NativeName(NativeNameType.Type, "FT_Fixed")] int yslant)
 		{
-			FreeType.FTGlyphSlotSlantNative(slot, xslant, yslant);
+			FreeType.GlyphSlotSlantNative(slot, xslant, yslant);
 		}
 
 		/// <summary>
@@ -4101,7 +4101,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "FT_Int")]
 		public static int GetCharmapIndex(this FTCharMap charmap)
 		{
-			int ret = FreeType.FTGetCharmapIndexNative(charmap);
+			int ret = FreeType.GetCharmapIndexNative(charmap);
 			return ret;
 		}
 
@@ -4126,7 +4126,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "FT_ULong")]
 		public static uint GetCMapLanguageId(this FTCharMap charmap)
 		{
-			uint ret = FreeType.FTGetCMapLanguageIDNative(charmap);
+			uint ret = FreeType.GetCMapLanguageIDNative(charmap);
 			return ret;
 		}
 
@@ -4147,7 +4147,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "FT_Long")]
 		public static int GetCMapFormat(this FTCharMap charmap)
 		{
-			int ret = FreeType.FTGetCMapFormatNative(charmap);
+			int ret = FreeType.GetCMapFormatNative(charmap);
 			return ret;
 		}
 
@@ -4173,9 +4173,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_Copy")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int Copy(this FTGlyph source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* target)
+		public static FTError Copy(this FTGlyph source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Glyph *")] FTGlyph* target)
 		{
-			int ret = FreeType.FTGlyphCopyNative(source, target);
+			FTError ret = FreeType.GlyphCopyNative(source, target);
 			return ret;
 		}
 
@@ -4201,11 +4201,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_Copy")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int Copy(this FTGlyph source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Glyph *")] ref FTGlyph target)
+		public static FTError Copy(this FTGlyph source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Glyph *")] ref FTGlyph target)
 		{
 			fixed (FTGlyph* ptarget = &target)
 			{
-				int ret = FreeType.FTGlyphCopyNative(source, (FTGlyph*)ptarget);
+				FTError ret = FreeType.GlyphCopyNative(source, (FTGlyph*)ptarget);
 				return ret;
 			}
 		}
@@ -4233,9 +4233,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_Transform")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int Transform(this FTGlyph glyph, [NativeName(NativeNameType.Param, "matrix")] [NativeName(NativeNameType.Type, "FT_Matrix const *")] FTMatrix* matrix, [NativeName(NativeNameType.Param, "delta")] [NativeName(NativeNameType.Type, "FT_Vector const *")] FTVector* delta)
+		public static FTError Transform(this FTGlyph glyph, [NativeName(NativeNameType.Param, "matrix")] [NativeName(NativeNameType.Type, "FT_Matrix const *")] FTMatrix* matrix, [NativeName(NativeNameType.Param, "delta")] [NativeName(NativeNameType.Type, "FT_Vector const *")] FTVector* delta)
 		{
-			int ret = FreeType.FTGlyphTransformNative(glyph, matrix, delta);
+			FTError ret = FreeType.GlyphTransformNative(glyph, matrix, delta);
 			return ret;
 		}
 
@@ -4262,11 +4262,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_Transform")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int Transform(this FTGlyph glyph, [NativeName(NativeNameType.Param, "matrix")] [NativeName(NativeNameType.Type, "FT_Matrix const *")] ref FTMatrix matrix, [NativeName(NativeNameType.Param, "delta")] [NativeName(NativeNameType.Type, "FT_Vector const *")] FTVector* delta)
+		public static FTError Transform(this FTGlyph glyph, [NativeName(NativeNameType.Param, "matrix")] [NativeName(NativeNameType.Type, "FT_Matrix const *")] ref FTMatrix matrix, [NativeName(NativeNameType.Param, "delta")] [NativeName(NativeNameType.Type, "FT_Vector const *")] FTVector* delta)
 		{
 			fixed (FTMatrix* pmatrix = &matrix)
 			{
-				int ret = FreeType.FTGlyphTransformNative(glyph, (FTMatrix*)pmatrix, delta);
+				FTError ret = FreeType.GlyphTransformNative(glyph, (FTMatrix*)pmatrix, delta);
 				return ret;
 			}
 		}
@@ -4294,11 +4294,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_Transform")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int Transform(this FTGlyph glyph, [NativeName(NativeNameType.Param, "matrix")] [NativeName(NativeNameType.Type, "FT_Matrix const *")] FTMatrix* matrix, [NativeName(NativeNameType.Param, "delta")] [NativeName(NativeNameType.Type, "FT_Vector const *")] ref FTVector delta)
+		public static FTError Transform(this FTGlyph glyph, [NativeName(NativeNameType.Param, "matrix")] [NativeName(NativeNameType.Type, "FT_Matrix const *")] FTMatrix* matrix, [NativeName(NativeNameType.Param, "delta")] [NativeName(NativeNameType.Type, "FT_Vector const *")] ref FTVector delta)
 		{
 			fixed (FTVector* pdelta = &delta)
 			{
-				int ret = FreeType.FTGlyphTransformNative(glyph, matrix, (FTVector*)pdelta);
+				FTError ret = FreeType.GlyphTransformNative(glyph, matrix, (FTVector*)pdelta);
 				return ret;
 			}
 		}
@@ -4326,13 +4326,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Glyph_Transform")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int Transform(this FTGlyph glyph, [NativeName(NativeNameType.Param, "matrix")] [NativeName(NativeNameType.Type, "FT_Matrix const *")] ref FTMatrix matrix, [NativeName(NativeNameType.Param, "delta")] [NativeName(NativeNameType.Type, "FT_Vector const *")] ref FTVector delta)
+		public static FTError Transform(this FTGlyph glyph, [NativeName(NativeNameType.Param, "matrix")] [NativeName(NativeNameType.Type, "FT_Matrix const *")] ref FTMatrix matrix, [NativeName(NativeNameType.Param, "delta")] [NativeName(NativeNameType.Type, "FT_Vector const *")] ref FTVector delta)
 		{
 			fixed (FTMatrix* pmatrix = &matrix)
 			{
 				fixed (FTVector* pdelta = &delta)
 				{
-					int ret = FreeType.FTGlyphTransformNative(glyph, (FTMatrix*)pmatrix, (FTVector*)pdelta);
+					FTError ret = FreeType.GlyphTransformNative(glyph, (FTMatrix*)pmatrix, (FTVector*)pdelta);
 					return ret;
 				}
 			}
@@ -4408,7 +4408,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void GetCBox(this FTGlyph glyph, [NativeName(NativeNameType.Param, "bbox_mode")] [NativeName(NativeNameType.Type, "FT_UInt")] uint bboxMode, [NativeName(NativeNameType.Param, "acbox")] [NativeName(NativeNameType.Type, "FT_BBox *")] FTBBox* acbox)
 		{
-			FreeType.FTGlyphGetCBoxNative(glyph, bboxMode, acbox);
+			FreeType.GlyphGetCBoxNative(glyph, bboxMode, acbox);
 		}
 
 		/// <summary>
@@ -4483,7 +4483,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTBBox* pacbox = &acbox)
 			{
-				FreeType.FTGlyphGetCBoxNative(glyph, bboxMode, (FTBBox*)pacbox);
+				FreeType.GlyphGetCBoxNative(glyph, bboxMode, (FTBBox*)pacbox);
 			}
 		}
 
@@ -4503,7 +4503,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void DoneGlyph(this FTGlyph glyph)
 		{
-			FreeType.FTDoneGlyphNative(glyph);
+			FreeType.DoneGlyphNative(glyph);
 		}
 
 		/// <summary>
@@ -4540,7 +4540,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void Set(this FTStroker stroker, [NativeName(NativeNameType.Param, "radius")] [NativeName(NativeNameType.Type, "FT_Fixed")] int radius, [NativeName(NativeNameType.Param, "line_cap")] [NativeName(NativeNameType.Type, "FT_Stroker_LineCap")] FTStrokerLineCap lineCap, [NativeName(NativeNameType.Param, "line_join")] [NativeName(NativeNameType.Type, "FT_Stroker_LineJoin")] FTStrokerLineJoin lineJoin, [NativeName(NativeNameType.Param, "miter_limit")] [NativeName(NativeNameType.Type, "FT_Fixed")] int miterLimit)
 		{
-			FreeType.FTStrokerSetNative(stroker, radius, lineCap, lineJoin, miterLimit);
+			FreeType.StrokerSetNative(stroker, radius, lineCap, lineJoin, miterLimit);
 		}
 
 		/// <summary>
@@ -4563,7 +4563,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void Rewind(this FTStroker stroker)
 		{
-			FreeType.FTStrokerRewindNative(stroker);
+			FreeType.StrokerRewindNative(stroker);
 		}
 
 		/// <summary>
@@ -4595,9 +4595,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ParseOutline")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int ParseOutline(this FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
+		public static FTError ParseOutline(this FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
 		{
-			int ret = FreeType.FTStrokerParseOutlineNative(stroker, outline, opened);
+			FTError ret = FreeType.StrokerParseOutlineNative(stroker, outline, opened);
 			return ret;
 		}
 
@@ -4630,11 +4630,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ParseOutline")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int ParseOutline(this FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
+		public static FTError ParseOutline(this FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "opened")] [NativeName(NativeNameType.Type, "FT_Bool")] byte opened)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				int ret = FreeType.FTStrokerParseOutlineNative(stroker, (FTOutline*)poutline, opened);
+				FTError ret = FreeType.StrokerParseOutlineNative(stroker, (FTOutline*)poutline, opened);
 				return ret;
 			}
 		}
@@ -4659,9 +4659,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_BeginSubPath")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int BeginSubPath(this FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
+		public static FTError BeginSubPath(this FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
 		{
-			int ret = FreeType.FTStrokerBeginSubPathNative(stroker, to, open);
+			FTError ret = FreeType.StrokerBeginSubPathNative(stroker, to, open);
 			return ret;
 		}
 
@@ -4685,11 +4685,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_BeginSubPath")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int BeginSubPath(this FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
+		public static FTError BeginSubPath(this FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to, [NativeName(NativeNameType.Param, "open")] [NativeName(NativeNameType.Type, "FT_Bool")] byte open)
 		{
 			fixed (FTVector* pto = &to)
 			{
-				int ret = FreeType.FTStrokerBeginSubPathNative(stroker, (FTVector*)pto, open);
+				FTError ret = FreeType.StrokerBeginSubPathNative(stroker, (FTVector*)pto, open);
 				return ret;
 			}
 		}
@@ -4710,9 +4710,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_EndSubPath")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int EndSubPath(this FTStroker stroker)
+		public static FTError EndSubPath(this FTStroker stroker)
 		{
-			int ret = FreeType.FTStrokerEndSubPathNative(stroker);
+			FTError ret = FreeType.StrokerEndSubPathNative(stroker);
 			return ret;
 		}
 
@@ -4735,9 +4735,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_LineTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int LineTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError LineTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
-			int ret = FreeType.FTStrokerLineToNative(stroker, to);
+			FTError ret = FreeType.StrokerLineToNative(stroker, to);
 			return ret;
 		}
 
@@ -4760,11 +4760,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_LineTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int LineTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError LineTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pto = &to)
 			{
-				int ret = FreeType.FTStrokerLineToNative(stroker, (FTVector*)pto);
+				FTError ret = FreeType.StrokerLineToNative(stroker, (FTVector*)pto);
 				return ret;
 			}
 		}
@@ -4790,9 +4790,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ConicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int ConicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError ConicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
-			int ret = FreeType.FTStrokerConicToNative(stroker, control, to);
+			FTError ret = FreeType.StrokerConicToNative(stroker, control, to);
 			return ret;
 		}
 
@@ -4817,11 +4817,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ConicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int ConicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError ConicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			fixed (FTVector* pcontrol = &control)
 			{
-				int ret = FreeType.FTStrokerConicToNative(stroker, (FTVector*)pcontrol, to);
+				FTError ret = FreeType.StrokerConicToNative(stroker, (FTVector*)pcontrol, to);
 				return ret;
 			}
 		}
@@ -4847,11 +4847,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ConicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int ConicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError ConicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pto = &to)
 			{
-				int ret = FreeType.FTStrokerConicToNative(stroker, control, (FTVector*)pto);
+				FTError ret = FreeType.StrokerConicToNative(stroker, control, (FTVector*)pto);
 				return ret;
 			}
 		}
@@ -4877,13 +4877,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_ConicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int ConicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError ConicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pcontrol = &control)
 			{
 				fixed (FTVector* pto = &to)
 				{
-					int ret = FreeType.FTStrokerConicToNative(stroker, (FTVector*)pcontrol, (FTVector*)pto);
+					FTError ret = FreeType.StrokerConicToNative(stroker, (FTVector*)pcontrol, (FTVector*)pto);
 					return ret;
 				}
 			}
@@ -4912,9 +4912,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
-			int ret = FreeType.FTStrokerCubicToNative(stroker, control1, control2, to);
+			FTError ret = FreeType.StrokerCubicToNative(stroker, control1, control2, to);
 			return ret;
 		}
 
@@ -4941,11 +4941,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			fixed (FTVector* pcontrol1 = &control1)
 			{
-				int ret = FreeType.FTStrokerCubicToNative(stroker, (FTVector*)pcontrol1, control2, to);
+				FTError ret = FreeType.StrokerCubicToNative(stroker, (FTVector*)pcontrol1, control2, to);
 				return ret;
 			}
 		}
@@ -4973,11 +4973,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			fixed (FTVector* pcontrol2 = &control2)
 			{
-				int ret = FreeType.FTStrokerCubicToNative(stroker, control1, (FTVector*)pcontrol2, to);
+				FTError ret = FreeType.StrokerCubicToNative(stroker, control1, (FTVector*)pcontrol2, to);
 				return ret;
 			}
 		}
@@ -5005,13 +5005,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
+		public static FTError CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* to)
 		{
 			fixed (FTVector* pcontrol1 = &control1)
 			{
 				fixed (FTVector* pcontrol2 = &control2)
 				{
-					int ret = FreeType.FTStrokerCubicToNative(stroker, (FTVector*)pcontrol1, (FTVector*)pcontrol2, to);
+					FTError ret = FreeType.StrokerCubicToNative(stroker, (FTVector*)pcontrol1, (FTVector*)pcontrol2, to);
 					return ret;
 				}
 			}

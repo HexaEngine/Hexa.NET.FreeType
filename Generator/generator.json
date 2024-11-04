@@ -9,11 +9,17 @@
   "GenerateMetadata": true,
   "TypeMappings": {
     "FT_Angle": "int",
-    "": "FTMod",
     "FT_Long": "int",
     "FT_ULong": "uint",
     "FT_Fixed": "int",
     "FT_F26Dot6": "int",
-    "FT_Pos": "int"
+    "FT_Pos": "int",
+    "UnnamedEnum0": "FTModError",
+    "UnnamedEnum1": "FTError",
+    "FT_Error": "FTError"
+  },
+  "KnownEnumPrefixes": {
+    "FTModError": "FT_Mod_Err",
+    "FTError": "FT_Err"
   }
 }

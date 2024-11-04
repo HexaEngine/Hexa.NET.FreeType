@@ -8,18 +8,24 @@
         private static int Main(string[] args)
         {
             FTError error;
-            FTLibrary library;
-            error = (FTError)FreeType.FTInitFreeType(&library);
-            if (error != FTError.FtErrOk)
+            FTLibrary library = default;
+            error = FreeType.InitFreeType(ref library);
+
+            if (error != FTError.Ok)
             {
                 Console.WriteLine($"Failed to initialize library, {error}");
                 return 1;
             }
 
+            int major, minor, patch;
+            library.Version(&major, &minor, &patch);
+
+            Console.WriteLine($"FreeType {major}.{minor}.{patch}");
+
             FTFace faceHandle;
 
-            error = (FTError)FreeType.FTNewFace(library, "arial.ttf", 0, &faceHandle);
-            if (error != FTError.FtErrOk)
+            error = FreeType.NewFace(library, "arial.ttf", 0, &faceHandle);
+            if (error != FTError.Ok)
             {
                 Console.WriteLine($"Failed to load font file, {error}");
                 return 1;
@@ -32,7 +38,7 @@
             Console.WriteLine($"Num Glyphs: {face->NumGlyphs}");
 
             faceHandle.DoneFace();
-            FreeType.FTDoneFreeType(library);
+            FreeType.DoneFreeType(library);
             return 0;
         }
     }

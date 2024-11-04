@@ -40,11 +40,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pto = &to)
 			{
-				int ret = FreeType.FTStrokerCubicToNative(stroker, control1, control2, (FTVector*)pto);
+				FTError ret = FreeType.StrokerCubicToNative(stroker, control1, control2, (FTVector*)pto);
 				return ret;
 			}
 		}
@@ -72,13 +72,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pcontrol1 = &control1)
 			{
 				fixed (FTVector* pto = &to)
 				{
-					int ret = FreeType.FTStrokerCubicToNative(stroker, (FTVector*)pcontrol1, control2, (FTVector*)pto);
+					FTError ret = FreeType.StrokerCubicToNative(stroker, (FTVector*)pcontrol1, control2, (FTVector*)pto);
 					return ret;
 				}
 			}
@@ -107,13 +107,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pcontrol2 = &control2)
 			{
 				fixed (FTVector* pto = &to)
 				{
-					int ret = FreeType.FTStrokerCubicToNative(stroker, control1, (FTVector*)pcontrol2, (FTVector*)pto);
+					FTError ret = FreeType.StrokerCubicToNative(stroker, control1, (FTVector*)pcontrol2, (FTVector*)pto);
 					return ret;
 				}
 			}
@@ -142,7 +142,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_CubicTo")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
+		public static FTError CubicTo(this FTStroker stroker, [NativeName(NativeNameType.Param, "control1")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control1, [NativeName(NativeNameType.Param, "control2")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector control2, [NativeName(NativeNameType.Param, "to")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector to)
 		{
 			fixed (FTVector* pcontrol1 = &control1)
 			{
@@ -150,7 +150,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTVector* pto = &to)
 					{
-						int ret = FreeType.FTStrokerCubicToNative(stroker, (FTVector*)pcontrol1, (FTVector*)pcontrol2, (FTVector*)pto);
+						FTError ret = FreeType.StrokerCubicToNative(stroker, (FTVector*)pcontrol1, (FTVector*)pcontrol2, (FTVector*)pto);
 						return ret;
 					}
 				}
@@ -190,9 +190,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetBorderCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetBorderCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		public static FTError GetBorderCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
-			int ret = FreeType.FTStrokerGetBorderCountsNative(stroker, border, anumPoints, anumContours);
+			FTError ret = FreeType.StrokerGetBorderCountsNative(stroker, border, anumPoints, anumContours);
 			return ret;
 		}
 
@@ -229,11 +229,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetBorderCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetBorderCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		public static FTError GetBorderCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
 			fixed (uint* panumPoints = &anumPoints)
 			{
-				int ret = FreeType.FTStrokerGetBorderCountsNative(stroker, border, (uint*)panumPoints, anumContours);
+				FTError ret = FreeType.StrokerGetBorderCountsNative(stroker, border, (uint*)panumPoints, anumContours);
 				return ret;
 			}
 		}
@@ -271,11 +271,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetBorderCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetBorderCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
+		public static FTError GetBorderCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
 		{
 			fixed (uint* panumContours = &anumContours)
 			{
-				int ret = FreeType.FTStrokerGetBorderCountsNative(stroker, border, anumPoints, (uint*)panumContours);
+				FTError ret = FreeType.StrokerGetBorderCountsNative(stroker, border, anumPoints, (uint*)panumContours);
 				return ret;
 			}
 		}
@@ -313,13 +313,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetBorderCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetBorderCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
+		public static FTError GetBorderCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
 		{
 			fixed (uint* panumPoints = &anumPoints)
 			{
 				fixed (uint* panumContours = &anumContours)
 				{
-					int ret = FreeType.FTStrokerGetBorderCountsNative(stroker, border, (uint*)panumPoints, (uint*)panumContours);
+					FTError ret = FreeType.StrokerGetBorderCountsNative(stroker, border, (uint*)panumPoints, (uint*)panumContours);
 					return ret;
 				}
 			}
@@ -359,7 +359,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void ExportBorder(this FTStroker stroker, [NativeName(NativeNameType.Param, "border")] [NativeName(NativeNameType.Type, "FT_StrokerBorder")] FTStrokerBorder border, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
-			FreeType.FTStrokerExportBorderNative(stroker, border, outline);
+			FreeType.StrokerExportBorderNative(stroker, border, outline);
 		}
 
 		/// <summary>
@@ -398,7 +398,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				FreeType.FTStrokerExportBorderNative(stroker, border, (FTOutline*)poutline);
+				FreeType.StrokerExportBorderNative(stroker, border, (FTOutline*)poutline);
 			}
 		}
 
@@ -425,9 +425,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		public static FTError GetCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
-			int ret = FreeType.FTStrokerGetCountsNative(stroker, anumPoints, anumContours);
+			FTError ret = FreeType.StrokerGetCountsNative(stroker, anumPoints, anumContours);
 			return ret;
 		}
 
@@ -454,11 +454,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
+		public static FTError GetCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumContours)
 		{
 			fixed (uint* panumPoints = &anumPoints)
 			{
-				int ret = FreeType.FTStrokerGetCountsNative(stroker, (uint*)panumPoints, anumContours);
+				FTError ret = FreeType.StrokerGetCountsNative(stroker, (uint*)panumPoints, anumContours);
 				return ret;
 			}
 		}
@@ -486,11 +486,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
+		public static FTError GetCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
 		{
 			fixed (uint* panumContours = &anumContours)
 			{
-				int ret = FreeType.FTStrokerGetCountsNative(stroker, anumPoints, (uint*)panumContours);
+				FTError ret = FreeType.StrokerGetCountsNative(stroker, anumPoints, (uint*)panumContours);
 				return ret;
 			}
 		}
@@ -518,13 +518,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Stroker_GetCounts")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int GetCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
+		public static FTError GetCounts(this FTStroker stroker, [NativeName(NativeNameType.Param, "anum_points")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumPoints, [NativeName(NativeNameType.Param, "anum_contours")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint anumContours)
 		{
 			fixed (uint* panumPoints = &anumPoints)
 			{
 				fixed (uint* panumContours = &anumContours)
 				{
-					int ret = FreeType.FTStrokerGetCountsNative(stroker, (uint*)panumPoints, (uint*)panumContours);
+					FTError ret = FreeType.StrokerGetCountsNative(stroker, (uint*)panumPoints, (uint*)panumContours);
 					return ret;
 				}
 			}
@@ -553,7 +553,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void Export(this FTStroker stroker, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
-			FreeType.FTStrokerExportNative(stroker, outline);
+			FreeType.StrokerExportNative(stroker, outline);
 		}
 
 		/// <summary>
@@ -581,7 +581,7 @@ namespace Hexa.NET.FreeType
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				FreeType.FTStrokerExportNative(stroker, (FTOutline*)poutline);
+				FreeType.StrokerExportNative(stroker, (FTOutline*)poutline);
 			}
 		}
 
@@ -601,7 +601,7 @@ namespace Hexa.NET.FreeType
 		[return: NativeName(NativeNameType.Type, "void")]
 		public static void Done(this FTStroker stroker)
 		{
-			FreeType.FTStrokerDoneNative(stroker);
+			FreeType.StrokerDoneNative(stroker);
 		}
 
 	}

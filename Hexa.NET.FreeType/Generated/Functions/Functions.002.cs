@@ -31,11 +31,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_EmboldenXY")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineEmboldenXY([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "xstrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int xstrength, [NativeName(NativeNameType.Param, "ystrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int ystrength)
+		public static FTError OutlineEmboldenXY([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "xstrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int xstrength, [NativeName(NativeNameType.Param, "ystrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int ystrength)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				int ret = FTOutlineEmboldenXYNative((FTOutline*)poutline, xstrength, ystrength);
+				FTError ret = OutlineEmboldenXYNative((FTOutline*)poutline, xstrength, ystrength);
 				return ret;
 			}
 		}
@@ -59,7 +59,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Outline_Reverse")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTOutlineReverseNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		internal static void OutlineReverseNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTOutline*, void>)funcTable[67])(outline);
@@ -86,9 +86,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Reverse")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTOutlineReverse([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		public static void OutlineReverse([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
-			FTOutlineReverseNative(outline);
+			OutlineReverseNative(outline);
 		}
 
 		/// <summary>
@@ -109,11 +109,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Reverse")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTOutlineReverse([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
+		public static void OutlineReverse([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				FTOutlineReverseNative((FTOutline*)poutline);
+				OutlineReverseNative((FTOutline*)poutline);
 			}
 		}
 
@@ -146,12 +146,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_Bitmap")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTOutlineGetBitmapNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* abitmap)
+		internal static FTError OutlineGetBitmapNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* abitmap)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTOutline*, FTBitmap*, int>)funcTable[68])(library, outline, abitmap);
+			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTOutline*, FTBitmap*, FTError>)funcTable[68])(library, outline, abitmap);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTLibrary, nint, nint, int>)funcTable[68])(library, (nint)outline, (nint)abitmap);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTLibrary, nint, nint, FTError>)funcTable[68])(library, (nint)outline, (nint)abitmap);
 			#endif
 		}
 
@@ -183,9 +183,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_Bitmap")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineGetBitmap([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* abitmap)
+		public static FTError OutlineGetBitmap([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* abitmap)
 		{
-			int ret = FTOutlineGetBitmapNative(library, outline, abitmap);
+			FTError ret = OutlineGetBitmapNative(library, outline, abitmap);
 			return ret;
 		}
 
@@ -217,11 +217,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_Bitmap")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineGetBitmap([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* abitmap)
+		public static FTError OutlineGetBitmap([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* abitmap)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				int ret = FTOutlineGetBitmapNative(library, (FTOutline*)poutline, abitmap);
+				FTError ret = OutlineGetBitmapNative(library, (FTOutline*)poutline, abitmap);
 				return ret;
 			}
 		}
@@ -254,11 +254,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_Bitmap")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineGetBitmap([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap abitmap)
+		public static FTError OutlineGetBitmap([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap abitmap)
 		{
 			fixed (FTBitmap* pabitmap = &abitmap)
 			{
-				int ret = FTOutlineGetBitmapNative(library, outline, (FTBitmap*)pabitmap);
+				FTError ret = OutlineGetBitmapNative(library, outline, (FTBitmap*)pabitmap);
 				return ret;
 			}
 		}
@@ -291,13 +291,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_Bitmap")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineGetBitmap([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap abitmap)
+		public static FTError OutlineGetBitmap([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap abitmap)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
 				fixed (FTBitmap* pabitmap = &abitmap)
 				{
-					int ret = FTOutlineGetBitmapNative(library, (FTOutline*)poutline, (FTBitmap*)pabitmap);
+					FTError ret = OutlineGetBitmapNative(library, (FTOutline*)poutline, (FTBitmap*)pabitmap);
 					return ret;
 				}
 			}
@@ -328,12 +328,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Outline_Render")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTOutlineRenderNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] FTRasterParams* @params)
+		internal static FTError OutlineRenderNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] FTRasterParams* @params)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTOutline*, FTRasterParams*, int>)funcTable[69])(library, outline, @params);
+			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTOutline*, FTRasterParams*, FTError>)funcTable[69])(library, outline, @params);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTLibrary, nint, nint, int>)funcTable[69])(library, (nint)outline, (nint)@params);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTLibrary, nint, nint, FTError>)funcTable[69])(library, (nint)outline, (nint)@params);
 			#endif
 		}
 
@@ -361,9 +361,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Render")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineRender([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] FTRasterParams* @params)
+		public static FTError OutlineRender([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] FTRasterParams* @params)
 		{
-			int ret = FTOutlineRenderNative(library, outline, @params);
+			FTError ret = OutlineRenderNative(library, outline, @params);
 			return ret;
 		}
 
@@ -391,11 +391,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Render")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineRender([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] FTRasterParams* @params)
+		public static FTError OutlineRender([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] FTRasterParams* @params)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				int ret = FTOutlineRenderNative(library, (FTOutline*)poutline, @params);
+				FTError ret = OutlineRenderNative(library, (FTOutline*)poutline, @params);
 				return ret;
 			}
 		}
@@ -424,11 +424,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Render")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineRender([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] ref FTRasterParams @params)
+		public static FTError OutlineRender([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] ref FTRasterParams @params)
 		{
 			fixed (FTRasterParams* pparams = &@params)
 			{
-				int ret = FTOutlineRenderNative(library, outline, (FTRasterParams*)pparams);
+				FTError ret = OutlineRenderNative(library, outline, (FTRasterParams*)pparams);
 				return ret;
 			}
 		}
@@ -457,13 +457,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Render")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTOutlineRender([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] ref FTRasterParams @params)
+		public static FTError OutlineRender([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline, [NativeName(NativeNameType.Param, "params")] [NativeName(NativeNameType.Type, "FT_Raster_Params *")] ref FTRasterParams @params)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
 				fixed (FTRasterParams* pparams = &@params)
 				{
-					int ret = FTOutlineRenderNative(library, (FTOutline*)poutline, (FTRasterParams*)pparams);
+					FTError ret = OutlineRenderNative(library, (FTOutline*)poutline, (FTRasterParams*)pparams);
 					return ret;
 				}
 			}
@@ -497,7 +497,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_Orientation")]
 		[return: NativeName(NativeNameType.Type, "FT_Orientation")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static FTOrientation FTOutlineGetOrientationNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		internal static FTOrientation OutlineGetOrientationNative([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTOutline*, FTOrientation>)funcTable[70])(outline);
@@ -533,9 +533,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_Orientation")]
 		[return: NativeName(NativeNameType.Type, "FT_Orientation")]
-		public static FTOrientation FTOutlineGetOrientation([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
+		public static FTOrientation OutlineGetOrientation([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] FTOutline* outline)
 		{
-			FTOrientation ret = FTOutlineGetOrientationNative(outline);
+			FTOrientation ret = OutlineGetOrientationNative(outline);
 			return ret;
 		}
 
@@ -566,11 +566,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Outline_Get_Orientation")]
 		[return: NativeName(NativeNameType.Type, "FT_Orientation")]
-		public static FTOrientation FTOutlineGetOrientation([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
+		public static FTOrientation OutlineGetOrientation([NativeName(NativeNameType.Param, "outline")] [NativeName(NativeNameType.Type, "FT_Outline *")] ref FTOutline outline)
 		{
 			fixed (FTOutline* poutline = &outline)
 			{
-				FTOrientation ret = FTOutlineGetOrientationNative((FTOutline*)poutline);
+				FTOrientation ret = OutlineGetOrientationNative((FTOutline*)poutline);
 				return ret;
 			}
 		}
@@ -600,12 +600,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Palette_Data_Get")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTPaletteDataGetNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Palette_Data *")] FTPaletteData* apalette)
+		internal static FTError PaletteDataGetNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Palette_Data *")] FTPaletteData* apalette)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTFace, FTPaletteData*, int>)funcTable[71])(face, apalette);
+			return ((delegate* unmanaged[Cdecl]<FTFace, FTPaletteData*, FTError>)funcTable[71])(face, apalette);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTFace, nint, int>)funcTable[71])(face, (nint)apalette);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTFace, nint, FTError>)funcTable[71])(face, (nint)apalette);
 			#endif
 		}
 
@@ -633,9 +633,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Palette_Data_Get")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTPaletteDataGet([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Palette_Data *")] FTPaletteData* apalette)
+		public static FTError PaletteDataGet([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Palette_Data *")] FTPaletteData* apalette)
 		{
-			int ret = FTPaletteDataGetNative(face, apalette);
+			FTError ret = PaletteDataGetNative(face, apalette);
 			return ret;
 		}
 
@@ -663,11 +663,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Palette_Data_Get")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTPaletteDataGet([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Palette_Data *")] ref FTPaletteData apalette)
+		public static FTError PaletteDataGet([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Palette_Data *")] ref FTPaletteData apalette)
 		{
 			fixed (FTPaletteData* papalette = &apalette)
 			{
-				int ret = FTPaletteDataGetNative(face, (FTPaletteData*)papalette);
+				FTError ret = PaletteDataGetNative(face, (FTPaletteData*)papalette);
 				return ret;
 			}
 		}
@@ -710,12 +710,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Palette_Select")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTPaletteSelectNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "palette_index")] [NativeName(NativeNameType.Type, "FT_UShort")] ushort paletteIndex, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Color * *")] FTColor** apalette)
+		internal static FTError PaletteSelectNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "palette_index")] [NativeName(NativeNameType.Type, "FT_UShort")] ushort paletteIndex, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Color * *")] FTColor** apalette)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTFace, ushort, FTColor**, int>)funcTable[72])(face, paletteIndex, apalette);
+			return ((delegate* unmanaged[Cdecl]<FTFace, ushort, FTColor**, FTError>)funcTable[72])(face, paletteIndex, apalette);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTFace, ushort, nint, int>)funcTable[72])(face, paletteIndex, (nint)apalette);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTFace, ushort, nint, FTError>)funcTable[72])(face, paletteIndex, (nint)apalette);
 			#endif
 		}
 
@@ -756,9 +756,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Palette_Select")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTPaletteSelect([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "palette_index")] [NativeName(NativeNameType.Type, "FT_UShort")] ushort paletteIndex, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Color * *")] FTColor** apalette)
+		public static FTError PaletteSelect([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "palette_index")] [NativeName(NativeNameType.Type, "FT_UShort")] ushort paletteIndex, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Color * *")] FTColor** apalette)
 		{
-			int ret = FTPaletteSelectNative(face, paletteIndex, apalette);
+			FTError ret = PaletteSelectNative(face, paletteIndex, apalette);
 			return ret;
 		}
 
@@ -799,11 +799,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Palette_Select")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTPaletteSelect([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "palette_index")] [NativeName(NativeNameType.Type, "FT_UShort")] ushort paletteIndex, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Color * *")] ref FTColor* apalette)
+		public static FTError PaletteSelect([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "palette_index")] [NativeName(NativeNameType.Type, "FT_UShort")] ushort paletteIndex, [NativeName(NativeNameType.Param, "apalette")] [NativeName(NativeNameType.Type, "FT_Color * *")] ref FTColor* apalette)
 		{
 			fixed (FTColor** papalette = &apalette)
 			{
-				int ret = FTPaletteSelectNative(face, paletteIndex, (FTColor**)papalette);
+				FTError ret = PaletteSelectNative(face, paletteIndex, (FTColor**)papalette);
 				return ret;
 			}
 		}
@@ -831,12 +831,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Palette_Set_Foreground_Color")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTPaletteSetForegroundColorNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "foreground_color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor foregroundColor)
+		internal static FTError PaletteSetForegroundColorNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "foreground_color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor foregroundColor)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTFace, FTColor, int>)funcTable[73])(face, foregroundColor);
+			return ((delegate* unmanaged[Cdecl]<FTFace, FTColor, FTError>)funcTable[73])(face, foregroundColor);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTFace, FTColor, int>)funcTable[73])(face, foregroundColor);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTFace, FTColor, FTError>)funcTable[73])(face, foregroundColor);
 			#endif
 		}
 
@@ -862,9 +862,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Palette_Set_Foreground_Color")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTPaletteSetForegroundColor([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "foreground_color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor foregroundColor)
+		public static FTError PaletteSetForegroundColor([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "foreground_color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor foregroundColor)
 		{
-			int ret = FTPaletteSetForegroundColorNative(face, foregroundColor);
+			FTError ret = PaletteSetForegroundColorNative(face, foregroundColor);
 			return ret;
 		}
 
@@ -976,7 +976,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Layer")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte FTGetColorGlyphLayerNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
+		internal static byte GetColorGlyphLayerNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTFace, uint, uint*, uint*, FTLayerIterator*, byte>)funcTable[74])(face, baseGlyph, aglyphIndex, acolorIndex, iterator);
@@ -1092,9 +1092,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Layer")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
+		public static byte GetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
 		{
-			byte ret = FTGetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, acolorIndex, iterator);
+			byte ret = GetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, acolorIndex, iterator);
 			return ret;
 		}
 
@@ -1205,11 +1205,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Layer")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
+		public static byte GetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
 		{
 			fixed (uint* paglyphIndex = &aglyphIndex)
 			{
-				byte ret = FTGetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, acolorIndex, iterator);
+				byte ret = GetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, acolorIndex, iterator);
 				return ret;
 			}
 		}
@@ -1321,11 +1321,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Layer")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
+		public static byte GetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
 		{
 			fixed (uint* pacolorIndex = &acolorIndex)
 			{
-				byte ret = FTGetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, (uint*)pacolorIndex, iterator);
+				byte ret = GetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, (uint*)pacolorIndex, iterator);
 				return ret;
 			}
 		}
@@ -1437,13 +1437,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Layer")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
+		public static byte GetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator)
 		{
 			fixed (uint* paglyphIndex = &aglyphIndex)
 			{
 				fixed (uint* pacolorIndex = &acolorIndex)
 				{
-					byte ret = FTGetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, (uint*)pacolorIndex, iterator);
+					byte ret = GetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, (uint*)pacolorIndex, iterator);
 					return ret;
 				}
 			}
@@ -1556,11 +1556,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Layer")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator)
+		public static byte GetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator)
 		{
 			fixed (FTLayerIterator* piterator = &iterator)
 			{
-				byte ret = FTGetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, acolorIndex, (FTLayerIterator*)piterator);
+				byte ret = GetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, acolorIndex, (FTLayerIterator*)piterator);
 				return ret;
 			}
 		}
@@ -1672,13 +1672,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Layer")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator)
+		public static byte GetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator)
 		{
 			fixed (uint* paglyphIndex = &aglyphIndex)
 			{
 				fixed (FTLayerIterator* piterator = &iterator)
 				{
-					byte ret = FTGetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, acolorIndex, (FTLayerIterator*)piterator);
+					byte ret = GetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, acolorIndex, (FTLayerIterator*)piterator);
 					return ret;
 				}
 			}
@@ -1791,13 +1791,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Layer")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator)
+		public static byte GetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] uint* aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator)
 		{
 			fixed (uint* pacolorIndex = &acolorIndex)
 			{
 				fixed (FTLayerIterator* piterator = &iterator)
 				{
-					byte ret = FTGetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, (uint*)pacolorIndex, (FTLayerIterator*)piterator);
+					byte ret = GetColorGlyphLayerNative(face, baseGlyph, aglyphIndex, (uint*)pacolorIndex, (FTLayerIterator*)piterator);
 					return ret;
 				}
 			}
@@ -1910,7 +1910,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Layer")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator)
+		public static byte GetColorGlyphLayer([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "aglyph_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint aglyphIndex, [NativeName(NativeNameType.Param, "acolor_index")] [NativeName(NativeNameType.Type, "FT_UInt *")] ref uint acolorIndex, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator)
 		{
 			fixed (uint* paglyphIndex = &aglyphIndex)
 			{
@@ -1918,7 +1918,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTLayerIterator* piterator = &iterator)
 					{
-						byte ret = FTGetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, (uint*)pacolorIndex, (FTLayerIterator*)piterator);
+						byte ret = GetColorGlyphLayerNative(face, baseGlyph, (uint*)paglyphIndex, (uint*)pacolorIndex, (FTLayerIterator*)piterator);
 						return ret;
 					}
 				}
@@ -2016,7 +2016,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Paint")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte FTGetColorGlyphPaintNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "root_transform")] [NativeName(NativeNameType.Type, "FT_Color_Root_Transform")] FTColorRootTransform rootTransform, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
+		internal static byte GetColorGlyphPaintNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "root_transform")] [NativeName(NativeNameType.Type, "FT_Color_Root_Transform")] FTColorRootTransform rootTransform, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTFace, uint, FTColorRootTransform, FTOpaquePaint*, byte>)funcTable[75])(face, baseGlyph, rootTransform, paint);
@@ -2115,9 +2115,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Paint")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphPaint([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "root_transform")] [NativeName(NativeNameType.Type, "FT_Color_Root_Transform")] FTColorRootTransform rootTransform, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
+		public static byte GetColorGlyphPaint([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "root_transform")] [NativeName(NativeNameType.Type, "FT_Color_Root_Transform")] FTColorRootTransform rootTransform, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
 		{
-			byte ret = FTGetColorGlyphPaintNative(face, baseGlyph, rootTransform, paint);
+			byte ret = GetColorGlyphPaintNative(face, baseGlyph, rootTransform, paint);
 			return ret;
 		}
 
@@ -2211,11 +2211,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_Paint")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphPaint([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "root_transform")] [NativeName(NativeNameType.Type, "FT_Color_Root_Transform")] FTColorRootTransform rootTransform, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] ref FTOpaquePaint paint)
+		public static byte GetColorGlyphPaint([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "root_transform")] [NativeName(NativeNameType.Type, "FT_Color_Root_Transform")] FTColorRootTransform rootTransform, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] ref FTOpaquePaint paint)
 		{
 			fixed (FTOpaquePaint* ppaint = &paint)
 			{
-				byte ret = FTGetColorGlyphPaintNative(face, baseGlyph, rootTransform, (FTOpaquePaint*)ppaint);
+				byte ret = GetColorGlyphPaintNative(face, baseGlyph, rootTransform, (FTOpaquePaint*)ppaint);
 				return ret;
 			}
 		}
@@ -2252,7 +2252,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_ClipBox")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte FTGetColorGlyphClipBoxNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "clip_box")] [NativeName(NativeNameType.Type, "FT_ClipBox *")] FTClipBox* clipBox)
+		internal static byte GetColorGlyphClipBoxNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "clip_box")] [NativeName(NativeNameType.Type, "FT_ClipBox *")] FTClipBox* clipBox)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTFace, uint, FTClipBox*, byte>)funcTable[76])(face, baseGlyph, clipBox);
@@ -2292,9 +2292,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_ClipBox")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphClipBox([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "clip_box")] [NativeName(NativeNameType.Type, "FT_ClipBox *")] FTClipBox* clipBox)
+		public static byte GetColorGlyphClipBox([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "clip_box")] [NativeName(NativeNameType.Type, "FT_ClipBox *")] FTClipBox* clipBox)
 		{
-			byte ret = FTGetColorGlyphClipBoxNative(face, baseGlyph, clipBox);
+			byte ret = GetColorGlyphClipBoxNative(face, baseGlyph, clipBox);
 			return ret;
 		}
 
@@ -2329,11 +2329,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Color_Glyph_ClipBox")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorGlyphClipBox([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "clip_box")] [NativeName(NativeNameType.Type, "FT_ClipBox *")] ref FTClipBox clipBox)
+		public static byte GetColorGlyphClipBox([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "base_glyph")] [NativeName(NativeNameType.Type, "FT_UInt")] uint baseGlyph, [NativeName(NativeNameType.Param, "clip_box")] [NativeName(NativeNameType.Type, "FT_ClipBox *")] ref FTClipBox clipBox)
 		{
 			fixed (FTClipBox* pclipBox = &clipBox)
 			{
-				byte ret = FTGetColorGlyphClipBoxNative(face, baseGlyph, (FTClipBox*)pclipBox);
+				byte ret = GetColorGlyphClipBoxNative(face, baseGlyph, (FTClipBox*)pclipBox);
 				return ret;
 			}
 		}
@@ -2384,7 +2384,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Paint_Layers")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte FTGetPaintLayersNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
+		internal static byte GetPaintLayersNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTFace, FTLayerIterator*, FTOpaquePaint*, byte>)funcTable[77])(face, iterator, paint);
@@ -2438,9 +2438,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Paint_Layers")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetPaintLayers([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
+		public static byte GetPaintLayers([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
 		{
-			byte ret = FTGetPaintLayersNative(face, iterator, paint);
+			byte ret = GetPaintLayersNative(face, iterator, paint);
 			return ret;
 		}
 
@@ -2489,11 +2489,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Paint_Layers")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetPaintLayers([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
+		public static byte GetPaintLayers([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] FTOpaquePaint* paint)
 		{
 			fixed (FTLayerIterator* piterator = &iterator)
 			{
-				byte ret = FTGetPaintLayersNative(face, (FTLayerIterator*)piterator, paint);
+				byte ret = GetPaintLayersNative(face, (FTLayerIterator*)piterator, paint);
 				return ret;
 			}
 		}
@@ -2543,11 +2543,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Paint_Layers")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetPaintLayers([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] ref FTOpaquePaint paint)
+		public static byte GetPaintLayers([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] FTLayerIterator* iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] ref FTOpaquePaint paint)
 		{
 			fixed (FTOpaquePaint* ppaint = &paint)
 			{
-				byte ret = FTGetPaintLayersNative(face, iterator, (FTOpaquePaint*)ppaint);
+				byte ret = GetPaintLayersNative(face, iterator, (FTOpaquePaint*)ppaint);
 				return ret;
 			}
 		}
@@ -2597,13 +2597,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Paint_Layers")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetPaintLayers([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] ref FTOpaquePaint paint)
+		public static byte GetPaintLayers([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_LayerIterator *")] ref FTLayerIterator iterator, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint *")] ref FTOpaquePaint paint)
 		{
 			fixed (FTLayerIterator* piterator = &iterator)
 			{
 				fixed (FTOpaquePaint* ppaint = &paint)
 				{
-					byte ret = FTGetPaintLayersNative(face, (FTLayerIterator*)piterator, (FTOpaquePaint*)ppaint);
+					byte ret = GetPaintLayersNative(face, (FTLayerIterator*)piterator, (FTOpaquePaint*)ppaint);
 					return ret;
 				}
 			}
@@ -2644,7 +2644,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Colorline_Stops")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte FTGetColorlineStopsNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] FTColorStop* colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] FTColorStopIterator* iterator)
+		internal static byte GetColorlineStopsNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] FTColorStop* colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] FTColorStopIterator* iterator)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTFace, FTColorStop*, FTColorStopIterator*, byte>)funcTable[78])(face, colorStop, iterator);
@@ -2687,9 +2687,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Colorline_Stops")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorlineStops([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] FTColorStop* colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] FTColorStopIterator* iterator)
+		public static byte GetColorlineStops([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] FTColorStop* colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] FTColorStopIterator* iterator)
 		{
-			byte ret = FTGetColorlineStopsNative(face, colorStop, iterator);
+			byte ret = GetColorlineStopsNative(face, colorStop, iterator);
 			return ret;
 		}
 
@@ -2727,11 +2727,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Colorline_Stops")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorlineStops([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] ref FTColorStop colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] FTColorStopIterator* iterator)
+		public static byte GetColorlineStops([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] ref FTColorStop colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] FTColorStopIterator* iterator)
 		{
 			fixed (FTColorStop* pcolorStop = &colorStop)
 			{
-				byte ret = FTGetColorlineStopsNative(face, (FTColorStop*)pcolorStop, iterator);
+				byte ret = GetColorlineStopsNative(face, (FTColorStop*)pcolorStop, iterator);
 				return ret;
 			}
 		}
@@ -2770,11 +2770,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Colorline_Stops")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorlineStops([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] FTColorStop* colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] ref FTColorStopIterator iterator)
+		public static byte GetColorlineStops([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] FTColorStop* colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] ref FTColorStopIterator iterator)
 		{
 			fixed (FTColorStopIterator* piterator = &iterator)
 			{
-				byte ret = FTGetColorlineStopsNative(face, colorStop, (FTColorStopIterator*)piterator);
+				byte ret = GetColorlineStopsNative(face, colorStop, (FTColorStopIterator*)piterator);
 				return ret;
 			}
 		}
@@ -2813,13 +2813,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Colorline_Stops")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetColorlineStops([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] ref FTColorStop colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] ref FTColorStopIterator iterator)
+		public static byte GetColorlineStops([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "color_stop")] [NativeName(NativeNameType.Type, "FT_ColorStop *")] ref FTColorStop colorStop, [NativeName(NativeNameType.Param, "iterator")] [NativeName(NativeNameType.Type, "FT_ColorStopIterator *")] ref FTColorStopIterator iterator)
 		{
 			fixed (FTColorStop* pcolorStop = &colorStop)
 			{
 				fixed (FTColorStopIterator* piterator = &iterator)
 				{
-					byte ret = FTGetColorlineStopsNative(face, (FTColorStop*)pcolorStop, (FTColorStopIterator*)piterator);
+					byte ret = GetColorlineStopsNative(face, (FTColorStop*)pcolorStop, (FTColorStopIterator*)piterator);
 					return ret;
 				}
 			}
@@ -2855,7 +2855,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Paint")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte FTGetPaintNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "opaque_paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint")] FTOpaquePaint opaquePaint, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_COLR_Paint *")] FTCOLRPaint* paint)
+		internal static byte GetPaintNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "opaque_paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint")] FTOpaquePaint opaquePaint, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_COLR_Paint *")] FTCOLRPaint* paint)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTFace, FTOpaquePaint, FTCOLRPaint*, byte>)funcTable[79])(face, opaquePaint, paint);
@@ -2893,9 +2893,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Paint")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetPaint([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "opaque_paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint")] FTOpaquePaint opaquePaint, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_COLR_Paint *")] FTCOLRPaint* paint)
+		public static byte GetPaint([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "opaque_paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint")] FTOpaquePaint opaquePaint, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_COLR_Paint *")] FTCOLRPaint* paint)
 		{
-			byte ret = FTGetPaintNative(face, opaquePaint, paint);
+			byte ret = GetPaintNative(face, opaquePaint, paint);
 			return ret;
 		}
 
@@ -2928,11 +2928,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Paint")]
 		[return: NativeName(NativeNameType.Type, "FT_Bool")]
-		public static byte FTGetPaint([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "opaque_paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint")] FTOpaquePaint opaquePaint, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_COLR_Paint *")] ref FTCOLRPaint paint)
+		public static byte GetPaint([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "opaque_paint")] [NativeName(NativeNameType.Type, "FT_OpaquePaint")] FTOpaquePaint opaquePaint, [NativeName(NativeNameType.Param, "paint")] [NativeName(NativeNameType.Type, "FT_COLR_Paint *")] ref FTCOLRPaint paint)
 		{
 			fixed (FTCOLRPaint* ppaint = &paint)
 			{
-				byte ret = FTGetPaintNative(face, opaquePaint, (FTCOLRPaint*)ppaint);
+				byte ret = GetPaintNative(face, opaquePaint, (FTCOLRPaint*)ppaint);
 				return ret;
 			}
 		}
@@ -2954,7 +2954,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Init")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTBitmapInitNative([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* abitmap)
+		internal static void BitmapInitNative([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* abitmap)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTBitmap*, void>)funcTable[80])(abitmap);
@@ -2979,9 +2979,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Init")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTBitmapInit([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* abitmap)
+		public static void BitmapInit([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* abitmap)
 		{
-			FTBitmapInitNative(abitmap);
+			BitmapInitNative(abitmap);
 		}
 
 		/// <summary>
@@ -3000,11 +3000,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Init")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTBitmapInit([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap abitmap)
+		public static void BitmapInit([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap abitmap)
 		{
 			fixed (FTBitmap* pabitmap = &abitmap)
 			{
-				FTBitmapInitNative((FTBitmap*)pabitmap);
+				BitmapInitNative((FTBitmap*)pabitmap);
 			}
 		}
 
@@ -3014,7 +3014,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Bitmap_New")]
 		[return: NativeName(NativeNameType.Type, "void")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FTBitmapNewNative([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* abitmap)
+		internal static void BitmapNewNative([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* abitmap)
 		{
 			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<FTBitmap*, void>)funcTable[81])(abitmap);
@@ -3028,9 +3028,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_New")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTBitmapNew([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* abitmap)
+		public static void BitmapNew([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* abitmap)
 		{
-			FTBitmapNewNative(abitmap);
+			BitmapNewNative(abitmap);
 		}
 
 		/// <summary>
@@ -3038,11 +3038,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_New")]
 		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FTBitmapNew([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap abitmap)
+		public static void BitmapNew([NativeName(NativeNameType.Param, "abitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap abitmap)
 		{
 			fixed (FTBitmap* pabitmap = &abitmap)
 			{
-				FTBitmapNewNative((FTBitmap*)pabitmap);
+				BitmapNewNative((FTBitmap*)pabitmap);
 			}
 		}
 
@@ -3069,12 +3069,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Copy")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTBitmapCopyNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target)
+		internal static FTError BitmapCopyNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, FTBitmap*, int>)funcTable[82])(library, source, target);
+			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, FTBitmap*, FTError>)funcTable[82])(library, source, target);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTLibrary, nint, nint, int>)funcTable[82])(library, (nint)source, (nint)target);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTLibrary, nint, nint, FTError>)funcTable[82])(library, (nint)source, (nint)target);
 			#endif
 		}
 
@@ -3100,9 +3100,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Copy")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapCopy([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target)
+		public static FTError BitmapCopy([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target)
 		{
-			int ret = FTBitmapCopyNative(library, source, target);
+			FTError ret = BitmapCopyNative(library, source, target);
 			return ret;
 		}
 
@@ -3128,11 +3128,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Copy")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapCopy([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target)
+		public static FTError BitmapCopy([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target)
 		{
 			fixed (FTBitmap* psource = &source)
 			{
-				int ret = FTBitmapCopyNative(library, (FTBitmap*)psource, target);
+				FTError ret = BitmapCopyNative(library, (FTBitmap*)psource, target);
 				return ret;
 			}
 		}
@@ -3159,11 +3159,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Copy")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapCopy([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target)
+		public static FTError BitmapCopy([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target)
 		{
 			fixed (FTBitmap* ptarget = &target)
 			{
-				int ret = FTBitmapCopyNative(library, source, (FTBitmap*)ptarget);
+				FTError ret = BitmapCopyNative(library, source, (FTBitmap*)ptarget);
 				return ret;
 			}
 		}
@@ -3190,13 +3190,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Copy")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapCopy([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target)
+		public static FTError BitmapCopy([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target)
 		{
 			fixed (FTBitmap* psource = &source)
 			{
 				fixed (FTBitmap* ptarget = &target)
 				{
-					int ret = FTBitmapCopyNative(library, (FTBitmap*)psource, (FTBitmap*)ptarget);
+					FTError ret = BitmapCopyNative(library, (FTBitmap*)psource, (FTBitmap*)ptarget);
 					return ret;
 				}
 			}
@@ -3242,12 +3242,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Embolden")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTBitmapEmboldenNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* bitmap, [NativeName(NativeNameType.Param, "xStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int xStrength, [NativeName(NativeNameType.Param, "yStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int yStrength)
+		internal static FTError BitmapEmboldenNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* bitmap, [NativeName(NativeNameType.Param, "xStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int xStrength, [NativeName(NativeNameType.Param, "yStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int yStrength)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, int, int, int>)funcTable[83])(library, bitmap, xStrength, yStrength);
+			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, int, int, FTError>)funcTable[83])(library, bitmap, xStrength, yStrength);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTLibrary, nint, int, int, int>)funcTable[83])(library, (nint)bitmap, xStrength, yStrength);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTLibrary, nint, int, int, FTError>)funcTable[83])(library, (nint)bitmap, xStrength, yStrength);
 			#endif
 		}
 
@@ -3290,9 +3290,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Embolden")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapEmbolden([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* bitmap, [NativeName(NativeNameType.Param, "xStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int xStrength, [NativeName(NativeNameType.Param, "yStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int yStrength)
+		public static FTError BitmapEmbolden([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* bitmap, [NativeName(NativeNameType.Param, "xStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int xStrength, [NativeName(NativeNameType.Param, "yStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int yStrength)
 		{
-			int ret = FTBitmapEmboldenNative(library, bitmap, xStrength, yStrength);
+			FTError ret = BitmapEmboldenNative(library, bitmap, xStrength, yStrength);
 			return ret;
 		}
 
@@ -3335,11 +3335,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Embolden")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapEmbolden([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap bitmap, [NativeName(NativeNameType.Param, "xStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int xStrength, [NativeName(NativeNameType.Param, "yStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int yStrength)
+		public static FTError BitmapEmbolden([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap bitmap, [NativeName(NativeNameType.Param, "xStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int xStrength, [NativeName(NativeNameType.Param, "yStrength")] [NativeName(NativeNameType.Type, "FT_Pos")] int yStrength)
 		{
 			fixed (FTBitmap* pbitmap = &bitmap)
 			{
-				int ret = FTBitmapEmboldenNative(library, (FTBitmap*)pbitmap, xStrength, yStrength);
+				FTError ret = BitmapEmboldenNative(library, (FTBitmap*)pbitmap, xStrength, yStrength);
 				return ret;
 			}
 		}
@@ -3378,12 +3378,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Convert")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTBitmapConvertNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
+		internal static FTError BitmapConvertNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, FTBitmap*, int, int>)funcTable[84])(library, source, target, alignment);
+			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, FTBitmap*, int, FTError>)funcTable[84])(library, source, target, alignment);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTLibrary, nint, nint, int, int>)funcTable[84])(library, (nint)source, (nint)target, alignment);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTLibrary, nint, nint, int, FTError>)funcTable[84])(library, (nint)source, (nint)target, alignment);
 			#endif
 		}
 
@@ -3420,9 +3420,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Convert")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapConvert([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
+		public static FTError BitmapConvert([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
 		{
-			int ret = FTBitmapConvertNative(library, source, target, alignment);
+			FTError ret = BitmapConvertNative(library, source, target, alignment);
 			return ret;
 		}
 
@@ -3459,11 +3459,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Convert")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapConvert([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
+		public static FTError BitmapConvert([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
 		{
 			fixed (FTBitmap* psource = &source)
 			{
-				int ret = FTBitmapConvertNative(library, (FTBitmap*)psource, target, alignment);
+				FTError ret = BitmapConvertNative(library, (FTBitmap*)psource, target, alignment);
 				return ret;
 			}
 		}
@@ -3501,11 +3501,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Convert")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapConvert([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
+		public static FTError BitmapConvert([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
 		{
 			fixed (FTBitmap* ptarget = &target)
 			{
-				int ret = FTBitmapConvertNative(library, source, (FTBitmap*)ptarget, alignment);
+				FTError ret = BitmapConvertNative(library, source, (FTBitmap*)ptarget, alignment);
 				return ret;
 			}
 		}
@@ -3543,13 +3543,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Convert")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapConvert([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
+		public static FTError BitmapConvert([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "alignment")] [NativeName(NativeNameType.Type, "FT_Int")] int alignment)
 		{
 			fixed (FTBitmap* psource = &source)
 			{
 				fixed (FTBitmap* ptarget = &target)
 				{
-					int ret = FTBitmapConvertNative(library, (FTBitmap*)psource, (FTBitmap*)ptarget, alignment);
+					FTError ret = BitmapConvertNative(library, (FTBitmap*)psource, (FTBitmap*)ptarget, alignment);
 					return ret;
 				}
 			}
@@ -3601,12 +3601,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Blend")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTBitmapBlendNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
+		internal static FTError BitmapBlendNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, FTVector, FTBitmap*, FTVector*, FTColor, int>)funcTable[85])(library, source, sourceOffset, target, atargetOffset, color);
+			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, FTVector, FTBitmap*, FTVector*, FTColor, FTError>)funcTable[85])(library, source, sourceOffset, target, atargetOffset, color);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTLibrary, nint, FTVector, nint, nint, FTColor, int>)funcTable[85])(library, (nint)source, sourceOffset, (nint)target, (nint)atargetOffset, color);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTLibrary, nint, FTVector, nint, nint, FTColor, FTError>)funcTable[85])(library, (nint)source, sourceOffset, (nint)target, (nint)atargetOffset, color);
 			#endif
 		}
 
@@ -3655,9 +3655,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Blend")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
+		public static FTError BitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
 		{
-			int ret = FTBitmapBlendNative(library, source, sourceOffset, target, atargetOffset, color);
+			FTError ret = BitmapBlendNative(library, source, sourceOffset, target, atargetOffset, color);
 			return ret;
 		}
 
@@ -3706,11 +3706,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Blend")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
+		public static FTError BitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
 		{
 			fixed (FTBitmap* psource = &source)
 			{
-				int ret = FTBitmapBlendNative(library, (FTBitmap*)psource, sourceOffset, target, atargetOffset, color);
+				FTError ret = BitmapBlendNative(library, (FTBitmap*)psource, sourceOffset, target, atargetOffset, color);
 				return ret;
 			}
 		}
@@ -3760,11 +3760,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Blend")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
+		public static FTError BitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
 		{
 			fixed (FTBitmap* ptarget = &target)
 			{
-				int ret = FTBitmapBlendNative(library, source, sourceOffset, (FTBitmap*)ptarget, atargetOffset, color);
+				FTError ret = BitmapBlendNative(library, source, sourceOffset, (FTBitmap*)ptarget, atargetOffset, color);
 				return ret;
 			}
 		}
@@ -3814,13 +3814,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Blend")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
+		public static FTError BitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] FTVector* atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
 		{
 			fixed (FTBitmap* psource = &source)
 			{
 				fixed (FTBitmap* ptarget = &target)
 				{
-					int ret = FTBitmapBlendNative(library, (FTBitmap*)psource, sourceOffset, (FTBitmap*)ptarget, atargetOffset, color);
+					FTError ret = BitmapBlendNative(library, (FTBitmap*)psource, sourceOffset, (FTBitmap*)ptarget, atargetOffset, color);
 					return ret;
 				}
 			}
@@ -3871,11 +3871,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Blend")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
+		public static FTError BitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
 		{
 			fixed (FTVector* patargetOffset = &atargetOffset)
 			{
-				int ret = FTBitmapBlendNative(library, source, sourceOffset, target, (FTVector*)patargetOffset, color);
+				FTError ret = BitmapBlendNative(library, source, sourceOffset, target, (FTVector*)patargetOffset, color);
 				return ret;
 			}
 		}
@@ -3925,13 +3925,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Blend")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
+		public static FTError BitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
 		{
 			fixed (FTBitmap* psource = &source)
 			{
 				fixed (FTVector* patargetOffset = &atargetOffset)
 				{
-					int ret = FTBitmapBlendNative(library, (FTBitmap*)psource, sourceOffset, target, (FTVector*)patargetOffset, color);
+					FTError ret = BitmapBlendNative(library, (FTBitmap*)psource, sourceOffset, target, (FTVector*)patargetOffset, color);
 					return ret;
 				}
 			}
@@ -3982,13 +3982,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Blend")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
+		public static FTError BitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] FTBitmap* source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
 		{
 			fixed (FTBitmap* ptarget = &target)
 			{
 				fixed (FTVector* patargetOffset = &atargetOffset)
 				{
-					int ret = FTBitmapBlendNative(library, source, sourceOffset, (FTBitmap*)ptarget, (FTVector*)patargetOffset, color);
+					FTError ret = BitmapBlendNative(library, source, sourceOffset, (FTBitmap*)ptarget, (FTVector*)patargetOffset, color);
 					return ret;
 				}
 			}
@@ -4039,7 +4039,7 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Blend")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
+		public static FTError BitmapBlend([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "source")] [NativeName(NativeNameType.Type, "FT_Bitmap const *")] ref FTBitmap source, [NativeName(NativeNameType.Param, "source_offset")] [NativeName(NativeNameType.Type, "FT_Vector const")] FTVector sourceOffset, [NativeName(NativeNameType.Param, "target")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap target, [NativeName(NativeNameType.Param, "atarget_offset")] [NativeName(NativeNameType.Type, "FT_Vector *")] ref FTVector atargetOffset, [NativeName(NativeNameType.Param, "color")] [NativeName(NativeNameType.Type, "FT_Color")] FTColor color)
 		{
 			fixed (FTBitmap* psource = &source)
 			{
@@ -4047,7 +4047,7 @@ namespace Hexa.NET.FreeType
 				{
 					fixed (FTVector* patargetOffset = &atargetOffset)
 					{
-						int ret = FTBitmapBlendNative(library, (FTBitmap*)psource, sourceOffset, (FTBitmap*)ptarget, (FTVector*)patargetOffset, color);
+						FTError ret = BitmapBlendNative(library, (FTBitmap*)psource, sourceOffset, (FTBitmap*)ptarget, (FTVector*)patargetOffset, color);
 						return ret;
 					}
 				}
@@ -4071,12 +4071,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_Own_Bitmap")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTGlyphSlotOwnBitmapNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
+		internal static FTError GlyphSlotOwnBitmapNative([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTGlyphSlot, int>)funcTable[86])(slot);
+			return ((delegate* unmanaged[Cdecl]<FTGlyphSlot, FTError>)funcTable[86])(slot);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTGlyphSlot, int>)funcTable[86])(slot);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTGlyphSlot, FTError>)funcTable[86])(slot);
 			#endif
 		}
 
@@ -4096,9 +4096,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_GlyphSlot_Own_Bitmap")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTGlyphSlotOwnBitmap([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
+		public static FTError GlyphSlotOwnBitmap([NativeName(NativeNameType.Param, "slot")] [NativeName(NativeNameType.Type, "FT_GlyphSlot")] FTGlyphSlot slot)
 		{
-			int ret = FTGlyphSlotOwnBitmapNative(slot);
+			FTError ret = GlyphSlotOwnBitmapNative(slot);
 			return ret;
 		}
 
@@ -4122,12 +4122,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Done")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTBitmapDoneNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* bitmap)
+		internal static FTError BitmapDoneNative([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* bitmap)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, int>)funcTable[87])(library, bitmap);
+			return ((delegate* unmanaged[Cdecl]<FTLibrary, FTBitmap*, FTError>)funcTable[87])(library, bitmap);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTLibrary, nint, int>)funcTable[87])(library, (nint)bitmap);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTLibrary, nint, FTError>)funcTable[87])(library, (nint)bitmap);
 			#endif
 		}
 
@@ -4150,9 +4150,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Done")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapDone([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* bitmap)
+		public static FTError BitmapDone([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] FTBitmap* bitmap)
 		{
-			int ret = FTBitmapDoneNative(library, bitmap);
+			FTError ret = BitmapDoneNative(library, bitmap);
 			return ret;
 		}
 
@@ -4175,11 +4175,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Bitmap_Done")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTBitmapDone([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap bitmap)
+		public static FTError BitmapDone([NativeName(NativeNameType.Param, "library")] [NativeName(NativeNameType.Type, "FT_Library")] FTLibrary library, [NativeName(NativeNameType.Param, "bitmap")] [NativeName(NativeNameType.Type, "FT_Bitmap *")] ref FTBitmap bitmap)
 		{
 			fixed (FTBitmap* pbitmap = &bitmap)
 			{
-				int ret = FTBitmapDoneNative(library, (FTBitmap*)pbitmap);
+				FTError ret = BitmapDoneNative(library, (FTBitmap*)pbitmap);
 				return ret;
 			}
 		}
@@ -4215,7 +4215,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "void *")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* FTGetSfntTableNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_Sfnt_Tag")] FTSfntTag tag)
+		internal static void* GetSfntTableNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_Sfnt_Tag")] FTSfntTag tag)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTFace, FTSfntTag, void*>)funcTable[88])(face, tag);
@@ -4254,9 +4254,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "void *")]
-		public static void* FTGetSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_Sfnt_Tag")] FTSfntTag tag)
+		public static void* GetSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_Sfnt_Tag")] FTSfntTag tag)
 		{
-			void* ret = FTGetSfntTableNative(face, tag);
+			void* ret = GetSfntTableNative(face, tag);
 			return ret;
 		}
 
@@ -4321,12 +4321,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Load_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTLoadSfntTableNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		internal static FTError LoadSfntTableNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTFace, uint, int, byte*, uint*, int>)funcTable[89])(face, tag, offset, buffer, length);
+			return ((delegate* unmanaged[Cdecl]<FTFace, uint, int, byte*, uint*, FTError>)funcTable[89])(face, tag, offset, buffer, length);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTFace, uint, int, nint, nint, int>)funcTable[89])(face, tag, offset, (nint)buffer, (nint)length);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTFace, uint, int, nint, nint, FTError>)funcTable[89])(face, tag, offset, (nint)buffer, (nint)length);
 			#endif
 		}
 
@@ -4390,9 +4390,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Load_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTLoadSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		public static FTError LoadSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
-			int ret = FTLoadSfntTableNative(face, tag, offset, buffer, length);
+			FTError ret = LoadSfntTableNative(face, tag, offset, buffer, length);
 			return ret;
 		}
 
@@ -4456,11 +4456,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Load_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTLoadSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] ref byte buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		public static FTError LoadSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] ref byte buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
 			fixed (byte* pbuffer = &buffer)
 			{
-				int ret = FTLoadSfntTableNative(face, tag, offset, (byte*)pbuffer, length);
+				FTError ret = LoadSfntTableNative(face, tag, offset, (byte*)pbuffer, length);
 				return ret;
 			}
 		}
@@ -4525,11 +4525,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Load_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTLoadSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
+		public static FTError LoadSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] byte* buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
 		{
 			fixed (uint* plength = &length)
 			{
-				int ret = FTLoadSfntTableNative(face, tag, offset, buffer, (uint*)plength);
+				FTError ret = LoadSfntTableNative(face, tag, offset, buffer, (uint*)plength);
 				return ret;
 			}
 		}
@@ -4594,13 +4594,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Load_Sfnt_Table")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTLoadSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] ref byte buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
+		public static FTError LoadSfntTable([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong")] uint tag, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "FT_Long")] int offset, [NativeName(NativeNameType.Param, "buffer")] [NativeName(NativeNameType.Type, "FT_Byte *")] ref byte buffer, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
 		{
 			fixed (byte* pbuffer = &buffer)
 			{
 				fixed (uint* plength = &length)
 				{
-					int ret = FTLoadSfntTableNative(face, tag, offset, (byte*)pbuffer, (uint*)plength);
+					FTError ret = LoadSfntTableNative(face, tag, offset, (byte*)pbuffer, (uint*)plength);
 					return ret;
 				}
 			}
@@ -4638,12 +4638,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Sfnt_Table_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTSfntTableInfoNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		internal static FTError SfntTableInfoNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTFace, uint, uint*, uint*, int>)funcTable[90])(face, tableIndex, tag, length);
+			return ((delegate* unmanaged[Cdecl]<FTFace, uint, uint*, uint*, FTError>)funcTable[90])(face, tableIndex, tag, length);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTFace, uint, nint, nint, int>)funcTable[90])(face, tableIndex, (nint)tag, (nint)length);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTFace, uint, nint, nint, FTError>)funcTable[90])(face, tableIndex, (nint)tag, (nint)length);
 			#endif
 		}
 
@@ -4678,9 +4678,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Sfnt_Table_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTSfntTableInfo([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		public static FTError SfntTableInfo([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
-			int ret = FTSfntTableInfoNative(face, tableIndex, tag, length);
+			FTError ret = SfntTableInfoNative(face, tableIndex, tag, length);
 			return ret;
 		}
 
@@ -4715,11 +4715,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Sfnt_Table_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTSfntTableInfo([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
+		public static FTError SfntTableInfo([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* length)
 		{
 			fixed (uint* ptag = &tag)
 			{
-				int ret = FTSfntTableInfoNative(face, tableIndex, (uint*)ptag, length);
+				FTError ret = SfntTableInfoNative(face, tableIndex, (uint*)ptag, length);
 				return ret;
 			}
 		}
@@ -4755,11 +4755,11 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Sfnt_Table_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTSfntTableInfo([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
+		public static FTError SfntTableInfo([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] uint* tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
 		{
 			fixed (uint* plength = &length)
 			{
-				int ret = FTSfntTableInfoNative(face, tableIndex, tag, (uint*)plength);
+				FTError ret = SfntTableInfoNative(face, tableIndex, tag, (uint*)plength);
 				return ret;
 			}
 		}
@@ -4795,13 +4795,13 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Sfnt_Table_Info")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTSfntTableInfo([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
+		public static FTError SfntTableInfo([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "table_index")] [NativeName(NativeNameType.Type, "FT_UInt")] uint tableIndex, [NativeName(NativeNameType.Param, "tag")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint tag, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "FT_ULong *")] ref uint length)
 		{
 			fixed (uint* ptag = &tag)
 			{
 				fixed (uint* plength = &length)
 				{
-					int ret = FTSfntTableInfoNative(face, tableIndex, (uint*)ptag, (uint*)plength);
+					FTError ret = SfntTableInfoNative(face, tableIndex, (uint*)ptag, (uint*)plength);
 					return ret;
 				}
 			}
@@ -4827,7 +4827,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_CMap_Language_ID")]
 		[return: NativeName(NativeNameType.Type, "FT_ULong")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint FTGetCMapLanguageIDNative([NativeName(NativeNameType.Param, "charmap")] [NativeName(NativeNameType.Type, "FT_CharMap")] FTCharMap charmap)
+		internal static uint GetCMapLanguageIDNative([NativeName(NativeNameType.Param, "charmap")] [NativeName(NativeNameType.Type, "FT_CharMap")] FTCharMap charmap)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTCharMap, uint>)funcTable[91])(charmap);
@@ -4855,9 +4855,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_CMap_Language_ID")]
 		[return: NativeName(NativeNameType.Type, "FT_ULong")]
-		public static uint FTGetCMapLanguageID([NativeName(NativeNameType.Param, "charmap")] [NativeName(NativeNameType.Type, "FT_CharMap")] FTCharMap charmap)
+		public static uint GetCMapLanguageID([NativeName(NativeNameType.Param, "charmap")] [NativeName(NativeNameType.Type, "FT_CharMap")] FTCharMap charmap)
 		{
-			uint ret = FTGetCMapLanguageIDNative(charmap);
+			uint ret = GetCMapLanguageIDNative(charmap);
 			return ret;
 		}
 
@@ -4877,7 +4877,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_CMap_Format")]
 		[return: NativeName(NativeNameType.Type, "FT_Long")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTGetCMapFormatNative([NativeName(NativeNameType.Param, "charmap")] [NativeName(NativeNameType.Type, "FT_CharMap")] FTCharMap charmap)
+		internal static int GetCMapFormatNative([NativeName(NativeNameType.Param, "charmap")] [NativeName(NativeNameType.Type, "FT_CharMap")] FTCharMap charmap)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTCharMap, int>)funcTable[92])(charmap);
@@ -4901,9 +4901,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_CMap_Format")]
 		[return: NativeName(NativeNameType.Type, "FT_Long")]
-		public static int FTGetCMapFormat([NativeName(NativeNameType.Param, "charmap")] [NativeName(NativeNameType.Type, "FT_CharMap")] FTCharMap charmap)
+		public static int GetCMapFormat([NativeName(NativeNameType.Param, "charmap")] [NativeName(NativeNameType.Type, "FT_CharMap")] FTCharMap charmap)
 		{
-			int ret = FTGetCMapFormatNative(charmap);
+			int ret = GetCMapFormatNative(charmap);
 			return ret;
 		}
 
@@ -4924,7 +4924,7 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_Name_Count")]
 		[return: NativeName(NativeNameType.Type, "FT_UInt")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint FTGetSfntNameCountNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face)
+		internal static uint GetSfntNameCountNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<FTFace, uint>)funcTable[93])(face);
@@ -4949,9 +4949,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_Name_Count")]
 		[return: NativeName(NativeNameType.Type, "FT_UInt")]
-		public static uint FTGetSfntNameCount([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face)
+		public static uint GetSfntNameCount([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face)
 		{
-			uint ret = FTGetSfntNameCountNative(face);
+			uint ret = GetSfntNameCountNative(face);
 			return ret;
 		}
 
@@ -4988,12 +4988,12 @@ namespace Hexa.NET.FreeType
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_Name")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int FTGetSfntNameNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] FTSfntName* aname)
+		internal static FTError GetSfntNameNative([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] FTSfntName* aname)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<FTFace, uint, FTSfntName*, int>)funcTable[94])(face, idx, aname);
+			return ((delegate* unmanaged[Cdecl]<FTFace, uint, FTSfntName*, FTError>)funcTable[94])(face, idx, aname);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<FTFace, uint, nint, int>)funcTable[94])(face, idx, (nint)aname);
+			return (FTError)((delegate* unmanaged[Cdecl]<FTFace, uint, nint, FTError>)funcTable[94])(face, idx, (nint)aname);
 			#endif
 		}
 
@@ -5029,9 +5029,9 @@ namespace Hexa.NET.FreeType
 		/// </summary>
 		[NativeName(NativeNameType.Func, "FT_Get_Sfnt_Name")]
 		[return: NativeName(NativeNameType.Type, "FT_Error")]
-		public static int FTGetSfntName([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] FTSfntName* aname)
+		public static FTError GetSfntName([NativeName(NativeNameType.Param, "face")] [NativeName(NativeNameType.Type, "FT_Face")] FTFace face, [NativeName(NativeNameType.Param, "idx")] [NativeName(NativeNameType.Type, "FT_UInt")] uint idx, [NativeName(NativeNameType.Param, "aname")] [NativeName(NativeNameType.Type, "FT_SfntName *")] FTSfntName* aname)
 		{
-			int ret = FTGetSfntNameNative(face, idx, aname);
+			FTError ret = GetSfntNameNative(face, idx, aname);
 			return ret;
 		}
 	}

@@ -1,0 +1,19 @@
+{
+  "Namespace": "Hexa.NET.FreeType",
+  "ApiName": "FreeType",
+  "LibName": "freetype",
+  "EnableExperimentalOptions": true,
+  "GenerateConstructorsForStructs": true,
+  "GenerateSizeOfStructs": false,
+  "GeneratePlaceholderComments": false,
+  "GenerateMetadata": true,
+  "TypeMappings": {
+    "FT_Angle": "int",
+    "": "FTMod",
+    "FT_Long": "int",
+    "FT_ULong": "uint",
+    "FT_Fixed": "int",
+    "FT_F26Dot6": "int",
+    "FT_Pos": "int"
+  }
+}

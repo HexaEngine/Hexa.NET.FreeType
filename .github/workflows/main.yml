@@ -63,7 +63,7 @@ jobs:
         ./vcpkg/bootstrap-vcpkg.sh
         ./vcpkg/vcpkg install zlib --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg install libpng --triplet ${{ matrix.vcpkg-triplet }}
-        ./vcpkg/vcpkg install brotli --triplet ${{ matrix.vcpkg-triplet }}
+        ./vcpkg/vcpkg install brotli[core,dec,enc] --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg install bzip2 --triplet ${{ matrix.vcpkg-triplet }}
 
     - name: Install vcpkg (Windows)
@@ -74,7 +74,7 @@ jobs:
         ./vcpkg/bootstrap-vcpkg.bat
         ./vcpkg/vcpkg.exe install zlib --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg.exe install libpng --triplet ${{ matrix.vcpkg-triplet }}
-        ./vcpkg/vcpkg.exe install brotli --triplet ${{ matrix.vcpkg-triplet }}
+        ./vcpkg/vcpkg.exe install brotli[core,dec,enc] --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg.exe install bzip2 --triplet ${{ matrix.vcpkg-triplet }}
 
     - name: Configure FreeType with CMake for ARM64 on Linux

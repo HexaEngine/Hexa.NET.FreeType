@@ -32,10 +32,10 @@ jobs:
             arch: x86_64
             cmake-arch: x86_64
             vcpkg-triplet: x64-osx
-          - os: macos-latest
-            arch: arm64
-            cmake-arch: arm64
-            vcpkg-triplet: arm64-osx
+#          - os: macos-latest
+#            arch: arm64
+#            cmake-arch: arm64
+#            vcpkg-triplet: arm64-osx
     steps:
     - uses: actions/checkout@v4.1.7
       with:
@@ -63,7 +63,7 @@ jobs:
         ./vcpkg/bootstrap-vcpkg.sh
         ./vcpkg/vcpkg install zlib --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg install libpng --triplet ${{ matrix.vcpkg-triplet }}
-        ./vcpkg/vcpkg install brotli[core,dec] --triplet ${{ matrix.vcpkg-triplet }}
+        ./vcpkg/vcpkg install brotli --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg install bzip2 --triplet ${{ matrix.vcpkg-triplet }}
 
     - name: Install vcpkg (Windows)
@@ -74,7 +74,7 @@ jobs:
         ./vcpkg/bootstrap-vcpkg.bat
         ./vcpkg/vcpkg.exe install zlib --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg.exe install libpng --triplet ${{ matrix.vcpkg-triplet }}
-        ./vcpkg/vcpkg.exe install brotli[core,dec] --triplet ${{ matrix.vcpkg-triplet }}
+        ./vcpkg/vcpkg.exe install brotli --triplet ${{ matrix.vcpkg-triplet }}
         ./vcpkg/vcpkg.exe install bzip2 --triplet ${{ matrix.vcpkg-triplet }}
 
     - name: Configure FreeType with CMake for ARM64 on Linux

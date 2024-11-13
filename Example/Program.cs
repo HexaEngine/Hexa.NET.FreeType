@@ -1,4 +1,4 @@
-﻿namespace FreeTypeTest
+﻿namespace Example
 {
     using Hexa.NET.FreeType;
     using System.Runtime.InteropServices;
@@ -17,14 +17,14 @@
                 return 1;
             }
 
-            int major, minor, patch;
-            library.Version(&major, &minor, &patch);
+            int major = 0, minor = 0, patch = 0;
+            library.Version(ref major, ref minor, ref patch);
 
             Console.WriteLine($"FreeType {major}.{minor}.{patch}");
 
-            FTFace faceHandle;
+            FTFace faceHandle = default;
 
-            error = FreeType.NewFace(library, "arial.ttf", 0, &faceHandle);
+            error = FreeType.NewFace(library, "arial.ttf", 0, ref faceHandle);
             if (error != FTError.Ok)
             {
                 Console.WriteLine($"Failed to load font file, {error}");

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0;net8.0;netstandard2.0;netstandard2.1</TargetFrameworks>
+		<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;netstandard2.1;netstandard2.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -14,7 +14,7 @@
 		<IsAotCompatible>true</IsAotCompatible>
 
 		<AssemblyVersion>2.13.3</AssemblyVersion>
-		<PackageVersion>1.1.0</PackageVersion>
+		<PackageVersion>1.1.1</PackageVersion>
 		<Description>A .NET Wrapper for FreeType (2.13.3), generated with the HexaGen code generator. HexaGen allows users to access native libraries easily and with high performance.</Description>
 		<PackageTags>TrueType FreeType FreeType2 Hexa HexaGen Source Generator C# .NET DotNet Sharp Windows macOS Android Bindings Wrapper Native</PackageTags>
 		<Authors>Juna Meinhold</Authors>
@@ -30,6 +30,10 @@
 
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="HexaGen.Runtime" Version="1.1.16" />
+	</ItemGroup>
 	
 	<ItemGroup>
 		<None Include="native\osx-arm64\*.dylib">
@@ -81,7 +85,4 @@
 		<Content Include="../README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="HexaGen.Runtime" Version="1.1.13" />
-	</ItemGroup>
 </Project>
